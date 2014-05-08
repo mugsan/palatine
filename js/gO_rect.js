@@ -12,3 +12,11 @@ Rect.prototype.draw = function(context) {
     context.fillStyle = this.color;
     context.fillRect(this.left, this.top, this.width, this.height);
 };
+
+Rect.prototype.move = function(dX, dY) {
+
+    this.left   += dX;
+    this.right  += dX;
+    this.top    += dY;
+    this.bottom += dY;
+}
