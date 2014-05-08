@@ -35,6 +35,7 @@ function main(){
 
 function loop(){
     
+    gGameState.draw();
     
     
     

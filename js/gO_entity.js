@@ -6,4 +6,4 @@ function Entity(){
 
 Entity.prototype.draw = function(context){
     
-}
+};
