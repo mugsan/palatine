@@ -1,7 +1,7 @@
 var gCanvas;
 var gContext;
 var gGameState;
-var gGRAVITY = .6;
+var gGRAVITY = .3;
 
 
 // --    init game    -- //

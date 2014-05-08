@@ -2,9 +2,9 @@ function Player(){
     
     this.width              = 4;
     this.height             = 4;
-    this.mBody              = new Rect(10, 14, "#999");
-    this.mHead              = new Rect(10, 6, "#777");
-    this.speed              = 2;
+    this.mBody              = new Rect(10, 30, "#999");
+    this.mHead              = new Rect(10, 22, "#777");
+    this.speed              = 8;
     this.mDir               = 0;
     this.hasMoved           = false;
     this.isAirborne         = true;
@@ -22,22 +22,54 @@ Player.prototype.draw = function(){
 
 
 Player.prototype.update = function(){
+    
+    var dX = 0;
+    var dY = 0;
+    
     if(this.isAirborne){
         this.jumpVelocity += gGRAVITY;
-        this.mBody.move(0,this.jumpVelocity);
-        this.mHead.move(0,this.jumpVelocity);
+        if(this.jumpVelocity > 4) this.jumpVelocity = 4;
+        dY = this.jumpVelocity;
     }
+    
     if(this.hasMoved){
         if (this.mDir == 1) {
-            this.mBody.move(this.speed, 0);
-            this.mHead.move(this.speed, 0);
+            dX += this.speed;
         }else if (this.mDir == 2) {
-            this.mBody.move(-this.speed, 0);
-            this.mHead.move(-this.speed, 0);
+            dX -= this.speed;
         }
     }
+    
+    if(this.collision(dX, 0)) dX = 0;
+    if(this.collision(0, dY)){ 
+        dY = 0;
+        this.jumpVelocity = 0;
+    }
+    
+    this.mBody.move(dX, dY);
+    this.mHead.move(dX, dY);
+    
     this.mDir       = 0;
     this.hasMoved   = false;
+}
+
+
+Player.prototype.collision = function(arg_dX, arg_dY){
+    
+    
+    if(this.mBody.left + arg_dX < 0) return false;
+    if(this.mBody.right + arg_dX > 320) return false;
+    if(this.mBody.bottom + arg_dY > 200) return false;
+    if(this.mBody.top + arg_dY < 0) return false;
+    
+    if(gGameState.mLevel.mStage[Math.floor((this.mBody.left + arg_dX)/8) + Math.floor((this.mBody.top + arg_dY) / 8) * 40].isSolid) return true;
+    if(gGameState.mLevel.mStage[Math.floor((this.mBody.right + arg_dX)/8)+ Math.floor((this.mBody.top + arg_dY) / 8) * 40].isSolid) return true;
+    if(gGameState.mLevel.mStage[Math.floor((this.mBody.left + arg_dX)/8)+ Math.floor((this.mBody.bottom + arg_dY) /8) * 40].isSolid) return true;
+    if(gGameState.mLevel.mStage[Math.floor((this.mBody.right + arg_dX)/8) + Math.floor((this.mBody.bottom + arg_dY)/8)*40].isSolid) return true;
+    
+    
+    return false;
+    
 }
     
     

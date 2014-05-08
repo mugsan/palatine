@@ -25,4 +25,6 @@ GameState.prototype.draw = function(){
 
 GameState.prototype.update = function() {
     this.mPlayer.update();
+    
+    
 };
