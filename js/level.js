@@ -10,13 +10,13 @@ function Level(){
 
 
 
-Level.prototype.render(){
+Level.prototype.render = function(){
     
  
-    for(val i = 0; i < this.height; i++){
+    for(var i = 0; i < this.height; i++){
         
      
-        for(val j = 0; j < this.width; j++){
+        for(var j = 0; j < this.width; j++){
             
             var currentTile = this.mStage[i + j * this.width];
             if(!(currentTile == 0))
@@ -30,13 +30,13 @@ Level.prototype.render(){
 }
 
 
-Level.prototype.loadStage(stage){
+Level.prototype.loadStage = function(stage){
     
  
-     for(val i = 0; i < this.height; i++){
+     for(var i = 0; i < this.height; i++){
         
      
-        for(val j = 0; j < this.width; j++){
+        for(var j = 0; j < this.width; j++){
             
             //void
             if(stage[i + j * this.width] == 0)
