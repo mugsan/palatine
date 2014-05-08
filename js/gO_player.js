@@ -4,7 +4,7 @@ function Player(){
     this.height             = 4;
     this.mBody              = new Rect(10, 30, "#999");
     this.mHead              = new Rect(10, 22, "#777");
-    this.speed              = 8;
+    this.speed              = 6;
     this.mDir               = 0;
     this.hasMoved           = false;
     this.isAirborne         = true;
@@ -25,6 +25,8 @@ Player.prototype.update = function(){
     
     var dX = 0;
     var dY = 0;
+    
+    
     
     if(this.isAirborne){
         this.jumpVelocity += gGRAVITY;
@@ -59,7 +61,7 @@ Player.prototype.collision = function(arg_dX, arg_dY){
     
     if(this.mBody.left + arg_dX < 0) return false;
     if(this.mBody.right + arg_dX > 320) return false;
-    if(this.mBody.bottom + arg_dY > 200) return false;
+    if(this.mBody.bottom + arg_dY > 240) return false;
     if(this.mBody.top + arg_dY < 0) return false;
     
     if(gGameState.mLevel.mStage[Math.floor((this.mBody.left + arg_dX)/8) + Math.floor((this.mBody.top + arg_dY) / 8) * 40].isSolid) return true;
