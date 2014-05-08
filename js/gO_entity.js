@@ -4,6 +4,6 @@ function Entity(){
     this.yPos = 0;
 }
 
-Entity.prototype.draw = function(){
+Entity.prototype.draw = function(context){
     
 }
