@@ -1,5 +1,6 @@
 var gCanvas;
 var gContext;
+var gGameState;
 
 
 // --    init game    -- //
@@ -9,7 +10,8 @@ function init(){
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
     
     
-    
+    gGameState = new GameState();
+     
 }
 
 
