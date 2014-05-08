@@ -63,19 +63,14 @@ function keyboard(event){
     
     //RIGHT
     else if(keyPressed == 39){
-        
-         gGameState.mPlayer.hasMoved = true;
+        gGameState.mPlayer.mDir     = 2;
+        gGameState.mPlayer.hasMoved = true;
      
     }
     
     //LEFT
     else if(keyPressed == 37){
-        
-         gGameState.mPlayer.hasMoved = true;
-      
+        gGameState.mPlayer.mDir     = 1;
+        gGameState.mPlayer.hasMoved = true;
     }
-    
-    
-    
-    
 }
