@@ -17,7 +17,7 @@ GameState.prototype.draw = function(){
     this.mLevel.render();
     
     
-    this.mPlayer.draw(this.mContext);
+    this.mPlayer.draw();
     
   
 };

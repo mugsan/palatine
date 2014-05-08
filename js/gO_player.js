@@ -9,11 +9,11 @@ function Player(){
 
 }
 
-Player.prototype.draw = function(context){
+Player.prototype.draw = function(){
     
     
-    this.mBody.draw(context);
-    this.mHead.draw(context);
+    this.mBody.draw();
+    this.mHead.draw();
           
 };
 

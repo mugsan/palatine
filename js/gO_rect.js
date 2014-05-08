@@ -8,9 +8,9 @@ function Rect(arg_x, arg_y, arg_color){
     this.isSolid= true;
 }
 
-Rect.prototype.draw = function(context) {
-    context.fillStyle = this.color;
-    context.fillRect(this.left, this.top, this.width, this.width);
+Rect.prototype.draw = function() {
+    gContext.fillStyle = this.color;
+    gContext.fillRect(this.left, this.top, this.width, this.width);
 };
 
 Rect.prototype.move = function(dX, dY) {
