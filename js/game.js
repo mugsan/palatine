@@ -52,7 +52,8 @@ function keyboard(event){
     var keyPressed = event.keyCode;
     //UP
     if(keyPressed == 38){
-        
+        gGameState.mPlayer.isAirBorne = true;
+        gGameState.mPlayer.jumpVelocity = -10;
        
       
     }
@@ -64,14 +65,14 @@ function keyboard(event){
     
     //RIGHT
     else if(keyPressed == 39){
-        gGameState.mPlayer.mDir     = 2;
+        gGameState.mPlayer.mDir     = 1;
         gGameState.mPlayer.hasMoved = true;
      
     }
     
     //LEFT
     else if(keyPressed == 37){
-        gGameState.mPlayer.mDir     = 1;
+        gGameState.mPlayer.mDir     = 2;
         gGameState.mPlayer.hasMoved = true;
     }
 }
