@@ -1,11 +1,6 @@
 @import url("./default.css");
-@font-face {
-    font-family:                arcade;
-    src:                        url("../font/arcadeFont.ttf");
-}
 body {
     text-align:                 center;
-    font-family:                'arcade';
     background:                 black;
 }
 
@@ -21,7 +16,7 @@ body section {
     width:                      810px;
     height:                     610px;
     margin:                     auto;
-    padding:                    20px 60px 100px 60px;
+    padding:                    60px 60px 60px 60px;
     border-radius:              1%;
 }
 body section p {
