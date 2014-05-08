@@ -11,4 +11,4 @@ function Rect(arg_x, arg_y, arg_w, arg_h, arg_color){
 Rect.prototype.draw = function(context) {
     context.fillstyle = this.color;
     context.fillrect(this.left, this.top, this.width, this.height);
-}
+};
