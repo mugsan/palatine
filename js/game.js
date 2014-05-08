@@ -23,14 +23,14 @@ function main(){
     gContext = gCanvas.getContext("2d");
     
     gCanvas.width = 320;
-    gCanvas.height = 200;
+    gCanvas.height = 240;
     
     
     init();
 
-    setInterval(loop, 40);
+    setInterval(loop, 10);
     
-    document.addEventListener("keydown", keyboard, true);
+    window.document.addEventListener("keydown", keyboard, true);
     
 }
 
@@ -49,9 +49,9 @@ function loop(){
 function keyboard(event){
    
     
-    var keyPressed = event.keyCode;
+    var keyPressed = event.keyCode
     //UP
-    if(keyPressed == 38){
+    if(keyPressed == 87){
         gGameState.mPlayer.isAirBorne = true;
         gGameState.mPlayer.jumpVelocity = -10;
        
@@ -59,19 +59,19 @@ function keyboard(event){
     }
     
     //DOWN
-    else if(keyPressed == 40){
+    if(keyPressed == 83){
      
     }
     
     //RIGHT
-    else if(keyPressed == 39){
+    if(keyPressed == 68){
         gGameState.mPlayer.mDir     = 1;
         gGameState.mPlayer.hasMoved = true;
      
     }
     
     //LEFT
-    else if(keyPressed == 37){
+    if(keyPressed == 65){
         gGameState.mPlayer.mDir     = 2;
         gGameState.mPlayer.hasMoved = true;
     }
