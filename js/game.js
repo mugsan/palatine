@@ -10,7 +10,7 @@ function init(){
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
     
     
-    gGameState = new GameState();
+    gGameState = new GameState(gContext);
      
 }
 
