@@ -13,14 +13,14 @@ function Level(){
 Level.prototype.render = function(){
     
  
-    for(var i = 0; i < this.height; i++){
+    for(var i = 0; i < this.height - 5; i++){
         
      
-        for(var j = 0; j < this.width; j++){
+        for(var j = 0; j < this.width - 5; j++){
             
             var currentTile = this.mStage[i + j * this.width];
             if(!(currentTile == 0))
-                currentTile.draw();
+                currentTile.draw(gContext);
             
         }
         
