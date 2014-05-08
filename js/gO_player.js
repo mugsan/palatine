@@ -2,8 +2,8 @@ function Player(){
     
     this.width = 4;
     this.height = 4;
-    this.mBody = new Rect(10, 14, this.width, this.height, "#999");
-    this.mHead = new Rect(10, 10, this.width, this.height, "#777");
+    this.mBody = new Rect(10, 14, "#999");
+    this.mHead = new Rect(10, 10, "#777");
     this.speed = 2;
     this.hasMoved = false;
 
