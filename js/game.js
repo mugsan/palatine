@@ -30,11 +30,23 @@ function main(){
 
     setInterval(loop, 10);
     
-    window.document.addEventListener("keydown", keyboard, true);
     
 }
 
 function loop(){
+    if (keyState[39] || keyState[68]){
+        gGameState.mPlayer.mDir = 1;
+        gGameState.mPlayer.hasMoved = true;
+    }    
+    if (keyState[37] || keyState[65]){
+        gGameState.mPlayer.mDir = 2;
+        gGameState.mPlayer.hasMoved = true;
+    }
+    if (keyState[38] || keyState[87]) {
+        if (!gGameState.mPlayer.isAirborne) {
+            gGameState.mPlayer.jumpVelocity = -4.5;
+        }
+    }
     
     gGameState.update();
     
@@ -44,35 +56,10 @@ function loop(){
     
     
 }
-
-// -- keyboard input -- //
-function keyboard(event){
-   
-    
-    var keyPressed = event.keyCode
-    //UP
-    if(keyPressed == 87){
-        gGameState.mPlayer.isAirBorne = true;
-        gGameState.mPlayer.jumpVelocity = -10;
-       
-      
-    }
-    
-    //DOWN
-    if(keyPressed == 83){
-     
-    }
-    
-    //RIGHT
-    if(keyPressed == 68){
-        gGameState.mPlayer.mDir     = 1;
-        gGameState.mPlayer.hasMoved = true;
-     
-    }
-    
-    //LEFT
-    if(keyPressed == 65){
-        gGameState.mPlayer.mDir     = 2;
-        gGameState.mPlayer.hasMoved = true;
-    }
-}
+var keyState = {};    
+window.addEventListener('keydown',function(e){
+    keyState[e.keyCode || e.which] = true;
+},true);    
+window.addEventListener('keyup',function(e){
+    keyState[e.keyCode || e.which] = false;
+},true);

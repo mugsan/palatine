@@ -4,7 +4,7 @@ function Player(){
     this.height             = 4;
     this.mBody              = new Rect(10, 30, "#999");
     this.mHead              = new Rect(10, 22, "#777");
-    this.speed              = 6;
+    this.speed              = 1;
     this.mDir               = 0;
     this.hasMoved           = false;
     this.isAirborne         = true;
@@ -46,6 +46,9 @@ Player.prototype.update = function(){
     if(this.collision(0, dY)){ 
         dY = 0;
         this.jumpVelocity = 0;
+        this.isAirborne = false;
+    }else{
+        this.isAirborne = true;
     }
     
     this.mBody.move(dX, dY);
