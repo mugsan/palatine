@@ -1,15 +1,9 @@
 // -- entity class -- //
 function Entity(){
-    
-    
-    this.x = 0;
-    this.y = 0;
-    
-    
-    
-    
+    this.xPos = 0;
+    this.yPos = 0;
 }
 
-Entity.prototype.draw = function(){
+Entity.prototype.draw = function(context){
     
 }
