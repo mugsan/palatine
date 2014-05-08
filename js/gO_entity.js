@@ -6,6 +6,8 @@ function Entity(){
     this.y = 0;
     
     
+    
+    
 }
 
 Entity.prototype.draw = function(){
