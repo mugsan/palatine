@@ -1,20 +1,19 @@
-function Rect(arg_x, arg_y, arg_w, arg_h, arg_color){
+function Rect(arg_x, arg_y, arg_color){
+    this.width  = 8;
     this.left   = arg_x;
-    this.right  = arg_x + arg_w;
+    this.right  = arg_x + this.width;
     this.top    = arg_y;
-    this.bottom = arg_y + arg_h;
-    this.width  = arg_w;
-    this.height = arg_h;
+    this.bottom = arg_y + this.width;
     this.color  = arg_color;
+    this.isSolid= true;
 }
 
 Rect.prototype.draw = function(context) {
     context.fillStyle = this.color;
-    context.fillRect(this.left, this.top, this.width, this.height);
+    context.fillRect(this.left, this.top, this.width, this.width);
 };
 
 Rect.prototype.move = function(dX, dY) {
-
     this.left   += dX;
     this.right  += dX;
     this.top    += dY;
