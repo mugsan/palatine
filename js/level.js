@@ -4,7 +4,7 @@ function Level(){
     this.mStage = new Array();
     
     this.width = 40;
-    this.height = 30;
+    this.height = 25;
     
 }
 
