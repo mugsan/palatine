@@ -6,7 +6,15 @@ function GameState(arg_context){
 }
 
 GameState.prototype.draw = function(){
+    
+    this.mContext.beginPath();
+    this.mContext.fillStyle = "#222";
+    this.mContext.fillRect(0, 0, 320, 200);
+    
+    
     this.mPlayer.draw(this.mContext);
+    
+    this.mContext.closePath();
 };
 
 
