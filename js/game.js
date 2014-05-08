@@ -1,7 +1,7 @@
 var gCanvas;
 var gContext;
 var gGameState;
-var gGRAVITY = .3;
+var gGRAVITY = .2;
 
 
 // --    init game    -- //
@@ -28,7 +28,7 @@ function main(){
     
     init();
 
-    setInterval(loop, 10);
+    setInterval(loop, 2);
     
     
 }
