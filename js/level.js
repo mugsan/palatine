@@ -13,12 +13,12 @@ function Level(){
 Level.prototype.render = function(){
     
  
-    for(var i = 0; i < this.height - 5; i++){
+    for(var i = 0; i < this.height; i++){
         
      
-        for(var j = 0; j < this.width - 5; j++){
+        for(var j = 0; j < this.width; j++){
             
-            var currentTile = this.mStage[i + j * this.width];
+            var currentTile = this.mStage[j + i * this.width];
             if(!(currentTile == 0))
                 currentTile.draw(gContext);
             
@@ -39,12 +39,12 @@ Level.prototype.loadStage = function(stage){
         for(var j = 0; j < this.width; j++){
             
             //void
-            if(stage[i + j * this.width] == 0)
-                this.mStage[i + j * this.width] = 0;
+            if(stage[j + i * this.width] == 0)
+                this.mStage[j + i * this.width] = 0;
                 
             //floor
-            if(stage[i + j * this.width] == 1) 
-                this.mStage[i + j * this.width]  = new Rect(i * 8, j * 8, "#00FF00"); 
+            if(stage[j + i * this.width] == 1) 
+                this.mStage[j + i * this.width]  = new Rect(j * 8, i * 8, "#00FF00"); 
             
         }
         
@@ -55,7 +55,7 @@ Level.prototype.loadStage = function(stage){
 
 
 var stage1 = 
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+[1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
