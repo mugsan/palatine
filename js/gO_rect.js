@@ -14,8 +14,9 @@ Rect.prototype.draw = function() {
 };
 
 Rect.prototype.move = function(dX, dY) {
-    this.left   += dX;
-    this.right  += dX;
-    this.top    += dY;
-    this.bottom += dY;
+    this.left   += parseInt(dX);
+    this.right  += parseInt(dX);
+    this.top    += parseInt(dY);
+    this.bottom += parseInt(dY);
+
 }

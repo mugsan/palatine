@@ -9,6 +9,7 @@ function Player(){
     this.hasMoved           = false;
     this.isAirborne         = true;
     this.jumpVelocity       = 0;
+    this.loadVelocity       = -3;
 
 }
 
@@ -49,6 +50,7 @@ Player.prototype.update = function(){
     if(this.collision(dX, dY)){ 
         
         if(dY > 0) this.isAirborne = false;
+        
         dY = 0;
         this.jumpVelocity = 0;
         
@@ -67,15 +69,15 @@ Player.prototype.update = function(){
 
 //- Player collision --//
 Player.prototype.collision = function(arg_dX, arg_dY){
- 
+    
+    arg_dX = parseInt(arg_dX);
+    arg_dY = parseInt(arg_dY);
     
     for(var i = 0; i < 4; i++){
-       if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + 1 + arg_dY).isSolid) return true; 
-       if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + 1 + arg_dY).isSolid) return true; 
+       if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid) return true; 
+       if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid) return true; 
     }
     
-    
-     //if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mHead.top + 8).isSolid) return true; 
     
     return false;
     
