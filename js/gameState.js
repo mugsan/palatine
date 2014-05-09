@@ -11,8 +11,8 @@ function GameState(arg_context){
 GameState.prototype.draw = function(){
     
     this.mContext.beginPath();
-    this.mContext.fillStyle = "#222";
-    this.mContext.fillRect(0, 0, 320, 200);
+    this.mContext.fillStyle = "#333";
+    this.mContext.fillRect(0, 0, 320, 240);
     this.mContext.closePath();
     this.mLevel.render();
     

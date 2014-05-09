@@ -28,7 +28,7 @@ function main(){
     
     init();
 
-    setInterval(loop, 2);
+    setInterval(loop, 10);
     
     
 }

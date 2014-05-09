@@ -6,6 +6,7 @@ function Level(){
     this.width = 40;
     this.height = 30;
     
+    
 }
 
 
@@ -19,7 +20,7 @@ Level.prototype.render = function(){
         for(var j = 0; j < this.width; j++){
             
             var currentTile = this.mStage[j + i * this.width];
-            if(!(currentTile == 0))
+            if(currentTile.color != "#333")
                 currentTile.draw(gContext);
             
         }
@@ -56,6 +57,20 @@ Level.prototype.loadStage = function(stage){
         }
     }
 }
+
+
+// - Get tile from current stage at arg_X, arg_Y
+Level.prototype.getTile = function(arg_X, arg_Y){
+    
+    if(arg_X < 0 || arg_X  > 320 || arg_Y > 240 || arg_Y < 0){
+        r = new Rect(0, 0, "#333");
+        r.isSolid = false;
+        return r;
+    }
+    
+    
+    return this.mStage[(Math.floor(arg_X / 8) + Math.floor(arg_Y / 8) * 40)];   
+};
 
 
 

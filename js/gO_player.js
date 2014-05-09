@@ -60,17 +60,18 @@ Player.prototype.update = function(){
 
 
 Player.prototype.collision = function(arg_dX, arg_dY){
-    
+    /*
     
     if(this.mBody.left + arg_dX < 0) return false;
     if(this.mBody.right + arg_dX > 320) return false;
     if(this.mBody.bottom + arg_dY > 240) return false;
-    if(this.mBody.top + arg_dY < 0) return false;
+    if(this.mBody.top + arg_dY < 0) return false;*/
     
-    if(gGameState.mLevel.mStage[Math.floor((this.mBody.left + arg_dX)/8) + Math.floor((this.mBody.top + arg_dY) / 8) * 40].isSolid) return true;
-    if(gGameState.mLevel.mStage[Math.floor((this.mBody.right + arg_dX)/8)+ Math.floor((this.mBody.top + arg_dY) / 8) * 40].isSolid) return true;
-    if(gGameState.mLevel.mStage[Math.floor((this.mBody.left + arg_dX)/8)+ Math.floor((this.mBody.bottom + arg_dY) /8) * 40].isSolid) return true;
-    if(gGameState.mLevel.mStage[Math.floor((this.mBody.right + arg_dX)/8) + Math.floor((this.mBody.bottom + arg_dY)/8)*40].isSolid) return true;
+    
+    if(gGameState.mLevel.getTile(this.mBody.left + arg_dX, this.mBody.top + arg_dY).isSolid) return true;
+    if(gGameState.mLevel.getTile(this.mBody.right + arg_dX, this.mBody.top + arg_dY).isSolid) return true;
+    if(gGameState.mLevel.getTile(this.mBody.left + arg_dX, this.mBody.bottom + arg_dY).isSolid) return true;
+    if(gGameState.mLevel.getTile(this.mBody.right + arg_dX, this.mBody.bottom + arg_dY).isSolid) return true;
     
     
     return false;
