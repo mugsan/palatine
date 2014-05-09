@@ -2,6 +2,7 @@ var gCanvas;
 var gContext;
 var gGameState;
 var gGRAVITY = .2;
+var gCounter = 0;
 
 
 // --    init game    -- //
@@ -28,32 +29,22 @@ function main(){
     
     init();
 
-    setInterval(loop, 10);
+    setInterval(loop, 8);
+    
+     
     
     
 }
 
 function loop(){
-    if (keyState[39] || keyState[68]){
-        gGameState.mPlayer.mDir = 1;
-        gGameState.mPlayer.hasMoved = true;
-    }    
-    if (keyState[37] || keyState[65]){
-        gGameState.mPlayer.mDir = 2;
-        gGameState.mPlayer.hasMoved = true;
-    }
-    if (keyState[38] || keyState[87]) {
-        if (!gGameState.mPlayer.isAirborne) {
-            gGameState.mPlayer.jumpVelocity = -4.5;
-        }
-    }
-    
-    gGameState.update();
-    
-    gGameState.draw();
-    
    
     
+      gGameState.update();
+    
+      if(gCounter % 4 == 0) gGameState.draw();
+    
+   
+        gCounter++;
     
 }
 var keyState = {};    

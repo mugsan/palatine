@@ -24,6 +24,20 @@ GameState.prototype.draw = function(){
 
 
 GameState.prototype.update = function() {
+    
+     if (keyState[39] || keyState[68]){
+        gGameState.mPlayer.mDir = 1;
+        gGameState.mPlayer.hasMoved = true;
+    }    
+    if (keyState[37] || keyState[65]){
+        gGameState.mPlayer.mDir = 2;
+        gGameState.mPlayer.hasMoved = true;
+    }
+    if (keyState[38] || keyState[87]) {
+        if (!gGameState.mPlayer.isAirborne) {
+            gGameState.mPlayer.jumpVelocity = -5.2;
+        }
+    }
     this.mPlayer.update();
     
     
