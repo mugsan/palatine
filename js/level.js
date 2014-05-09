@@ -52,13 +52,9 @@ Level.prototype.loadStage = function(stage){
                 var r = new Rect(j * 8, i * 8, "#442222");
                 r.isSolid = true;
                 this.mStage[j + i * this.width]  = r;
-                
             }
-            
         }
-        
     }
-    
 }
 
 
