@@ -3,8 +3,7 @@ function GameState(arg_context){
     //this.level = new Level();
     this.mPlayer = new Player();
     this.mLevel = new Level();
-    this.mLevel.loadStage(stage1);
-    
+    this.mLevel.readBMP('./stage/stage1.bmp'); 
     this.mContext = arg_context;
 }
 
