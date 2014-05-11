@@ -1,9 +1,9 @@
-function Player(){
+function Player(arg_X, arg_Y){
     
     this.width              = 4;
     this.height             = 4;
-    this.mBody              = new Rect(10, 30, "#999");
-    this.mHead              = new Rect(10, 22, "#777");
+    this.mBody              = new Rect(arg_X, arg_Y + 8, "#999");
+    this.mHead              = new Rect(arg_X, arg_Y, "#777");
     this.speed              = 1;
     this.mDir               = 0;
     this.hasMoved           = false;
@@ -27,8 +27,13 @@ Player.prototype.update = function(){
     var dX = 0;
     var dY = 0;
     
+    this.move(dX, dY);
     
+};
+
+Player.prototype.move = function(dX, dY){
     
+     
     if(this.isAirborne){
         this.jumpVelocity += gGRAVITY;
         if(this.jumpVelocity > 4) this.jumpVelocity = 4;
@@ -64,7 +69,9 @@ Player.prototype.update = function(){
     
     this.mDir       = 0;
     this.hasMoved   = false;
-}
+    
+    
+};
 
 
 //- Player collision --//
@@ -72,14 +79,21 @@ Player.prototype.collision = function(arg_dX, arg_dY){
     
     arg_dX = parseInt(arg_dX);
     arg_dY = parseInt(arg_dY);
+    var collided = false;
     
     for(var i = 0; i < 4; i++){
-       if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid) return true; 
-       if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid) return true; 
+       if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid){
+          collided = true;
+        }
+       if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid){
+           collided = true;
+          
+        }
+       
     }
     
     
-    return false;
+    return collided;
     
 }
     

@@ -20,3 +20,29 @@ Rect.prototype.move = function(dX, dY) {
     this.bottom += parseInt(dY);
 
 }
+
+Rect.prototype.interact = function(){
+    
+}
+
+
+
+function RedTile(arg_x, arg_y){
+    
+    Rect.call(this, arg_x, arg_y);
+   
+    this.isSolid= true;
+    this.color  = "#FF0000";
+    
+}
+
+RedTile.prototype = Object.create(Rect.prototype);
+
+RedTile.prototype.interact = function(){
+    
+   
+}
+    
+
+
+

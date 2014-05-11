@@ -16,7 +16,7 @@ function Level(){
     
  
     this.mStage                 = new Array();
-    this.mPlayer                = new Player();
+    this.mPlayer                = new Player(22, 180);
     
     this.width                  = 40;
     this.height                 = 30;
