@@ -21,7 +21,7 @@ Rect.prototype.move = function(dX, dY) {
 
 }
 
-Rect.prototype.interact = function(){
+Rect.prototype.interact = function(player){
     
 }
 
@@ -38,9 +38,28 @@ function RedTile(arg_x, arg_y){
 
 RedTile.prototype = Object.create(Rect.prototype);
 
-RedTile.prototype.interact = function(){
+RedTile.prototype.interact = function(player){
     
    
+}
+
+function IceTile(arg_x, arg_y, arg_color){
+    
+    Rect.call(this, arg_x, arg_y); 
+    
+    this.color = arg_color;
+    this.isSolid = true;
+    
+}
+
+IceTile.prototype = Object.create(Rect.prototype);
+
+IceTile.prototype.interact = function(player){
+    
+    //console.log("hej");
+    player.hasMoved = true;
+   
+    
 }
     
 

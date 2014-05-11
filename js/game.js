@@ -1,7 +1,6 @@
 var gCanvas;
 var gContext;
 var gGameState;
-var gGRAVITY = .2;
 var gCounter = 0;
 
 

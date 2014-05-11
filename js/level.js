@@ -2,6 +2,7 @@
  *  Black   = 23
  *  White   = 255
  *  Red     = 212
+ *  LightBlue = 113
  */
 
 
@@ -89,12 +90,20 @@ Level.prototype.readBMP             = function(arg_string) {
         tContext.drawImage(tImage,0,0);
 
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
+    
+    console.log(tImageData.data[0]);
 
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
                 var tileData        = tImageData.data[(col + row * tCanvas.width) * 4];
                 switch (tileData) {
                     case 212:       var r       = new Rect(col * 8, row * 8, '#442222');
+                                    r.isSolid   = true
+                                    this.mStage[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                    case 113:       console.log("all right!");
+                                    var r       = new IceTile(col * 8, row * 8, '#AAFFFF');
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;

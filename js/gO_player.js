@@ -34,7 +34,7 @@ Player.prototype.update = function(){
 
 Player.prototype.move = function(dX, dY){
     
-     
+    console.log("ok"); 
     if(this.isAirborne){
         this.jumpVelocity += this.GRAVITY;
         if(this.jumpVelocity > 4) this.jumpVelocity = 4;
@@ -84,11 +84,14 @@ Player.prototype.collision = function(arg_dX, arg_dY){
     
     for(var i = 0; i < 4; i++){
        if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid){
-          collided = true;
+            gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).interact(this);
+            collided = true;
+           return true;
         }
        if(gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid){
+           gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).interact(this);
            collided = true;
-          
+          return true;
         }
         
        
