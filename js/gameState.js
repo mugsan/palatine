@@ -16,16 +16,18 @@ function GameState(){
 };
 
 
-GameState.prototype.start = function() {
-    this.gameLoopID             = setInterval(this.run, 8);
-}
+//GameState.prototype.start = function() {
+    //this.gameLoopID             = setInterval(this.run, 8);
+//}
 
 GameState.prototype.run = function() {
-    console.log('nasalvind');
+    console.log(State.GAMEOVER);
     switch (this.currentState) {
         case State.INIT:        this.currentState = State.RUNNING;
                                 break;
-        case State.RUNNING:     this.mLevel.update();
+
+        case State.RUNNING:      
+                                this.mLevel.update();
                                 gCounter += 1;
                                 if (gCounter == 3) {
                                     this.mLevel.draw();

@@ -20,8 +20,12 @@ function main(){
     
     
     gGameState = new GameState();
-    gGameState.start();
+    setInterval(loop, 8);
+}
 
+function loop() {
+    console.log('loop');
+    gGameState.run();
 }
 
 var keyState = {};    
