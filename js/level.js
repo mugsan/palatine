@@ -101,20 +101,20 @@ Level.prototype.readBMP             = function(arg_string) {
                 switch (tileData) {
                     case 212:       var r       = new Rect(col * 8, row * 8, '#442222');
                                     r.isSolid   = true
-                                    this.tPixel[col + row * tCanvas.width] = r;
+                                    tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
                         //conveyor belt moving to the left
                     case 113:     
                                     var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF', -1);
                                     r.isSolid   = true
-                                    this.tPixel[col + row * tCanvas.width] = r;
+                                    tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
                         
                     case 74:        var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF', 1);
                                     r.isSolid   = true
-                                    this.tPixel[col + row * tCanvas.width] = r;
+                                    tPixel[col + row * tCanvas.width] = r;
                                     break;
       
                         //player spawn
@@ -122,7 +122,7 @@ Level.prototype.readBMP             = function(arg_string) {
                                     this.mPlayer                = new Player(col * 8, col * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
-                                    this.tPixel[col + row * tCanvas.width] = r;
+                                    tPixel[col + row * tCanvas.width] = r;
                                     break;
                 }
             }
