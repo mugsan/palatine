@@ -10,6 +10,7 @@ function Player(arg_X, arg_Y){
     this.isAirborne         = true;
     this.jumpVelocity       = 0;
     this.loadVelocity       = -3;
+    this.GRAVITY = .2;
 
 }
 
@@ -35,7 +36,7 @@ Player.prototype.move = function(dX, dY){
     
      
     if(this.isAirborne){
-        this.jumpVelocity += gGRAVITY;
+        this.jumpVelocity += this.GRAVITY;
         if(this.jumpVelocity > 4) this.jumpVelocity = 4;
         dY = this.jumpVelocity;
     }
@@ -89,6 +90,7 @@ Player.prototype.collision = function(arg_dX, arg_dY){
            collided = true;
           
         }
+        
        
     }
     
