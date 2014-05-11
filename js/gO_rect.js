@@ -56,14 +56,14 @@ function IceTile(arg_x, arg_y, arg_color){
 
 IceTile.prototype = Object.create(Rect.prototype);
 
-IceTile.prototype.interact = function(player){
+IceTile.prototype.interact = function(playerState){
     
     //console.log("hej");
     
-    player.Get_mBody().color = "#FF00FF";
+    playerState.mBody.color = "#FF00FF";
     
-    if(gCounter % 2 == 0) player.Set_VERTICAL_GRAVITY(1);
-    else player.Set_VERTICAL_GRAVITY(0);
+    if(gCounter % 2 == 0) playerState.VERTICAL_GRAVITY=1;
+    else playerState.VERTICAL_GRAVITY=0;
    // player.move(0, -1);
    
     
