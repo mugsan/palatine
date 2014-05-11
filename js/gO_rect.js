@@ -34,7 +34,7 @@ function RedTile(arg_x, arg_y){
    
     this.isSolid= true;
     this.color  = "#FF0000";
-    player.Set_VERTICAL_GRAVITY(0);
+    //player.Set_VERTICAL_GRAVITY(0);
     
 }
 
@@ -45,29 +45,29 @@ RedTile.prototype.interact = function(player){
    
 }
 
-function IceTile(arg_x, arg_y, arg_color){
+function ConveyorBeltTile(arg_x, arg_y, arg_color){
     
     Rect.call(this, arg_x, arg_y); 
     
     this.color = arg_color;
     this.isSolid = true;
+    this.counter = 0;
     
 }
 
-IceTile.prototype = Object.create(Rect.prototype);
+ConveyorBeltTile.prototype = Object.create(Rect.prototype);
 
-IceTile.prototype.interact = function(playerState){
-    
-    //console.log("hej");
-    
-    playerState.mBody.color = "#FF00FF";
-    
-    if(gCounter % 2 == 0) playerState.VERTICAL_GRAVITY=1;
-    else playerState.VERTICAL_GRAVITY=0;
-   // player.move(0, -1);
+ConveyorBeltTile.prototype.interact = function(playerState){
+  
+    if(this.counter % 2 == 0)   playerState.VERTICAL_GRAVITY = -1;
+    else playerState.VERTICAL_GRAVITY = 0;
    
-    
+    if(this.counter == 100) this.counter = 0;
+    this.counter++; 
+       
 }
+
+  
     
 
 
