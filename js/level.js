@@ -92,7 +92,7 @@ Level.prototype.readBMP             = function(arg_string) {
 
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
     
-    console.log(tImageData.data[0]);
+    console.log("this: "+tImageData.data[0]);
 
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
@@ -102,9 +102,16 @@ Level.prototype.readBMP             = function(arg_string) {
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;
-                        
+                    
+                        //conveyor belt moving to the left
                     case 113:     
-                                    var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF');
+                                    var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF', -1);
+                                    r.isSolid   = true
+                                    this.mStage[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                        
+                    case 74:        var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF', 1);
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;

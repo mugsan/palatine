@@ -45,10 +45,11 @@ RedTile.prototype.interact = function(player){
    
 }
 
-function ConveyorBeltTile(arg_x, arg_y, arg_color){
+function ConveyorBeltTile(arg_x, arg_y, arg_color, arg_dir){
     
     Rect.call(this, arg_x, arg_y); 
     
+    this.dir = arg_dir;
     this.color = arg_color;
     this.isSolid = true;
     this.counter = 0;
@@ -59,7 +60,7 @@ ConveyorBeltTile.prototype = Object.create(Rect.prototype);
 
 ConveyorBeltTile.prototype.interact = function(playerState){
   
-    if(this.counter % 2 == 0)   playerState.VERTICAL_GRAVITY = -1;
+    if(this.counter % 2 == 0)   playerState.VERTICAL_GRAVITY = this.dir;
     else playerState.VERTICAL_GRAVITY = 0;
    
     if(this.counter == 100) this.counter = 0;

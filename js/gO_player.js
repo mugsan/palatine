@@ -248,7 +248,7 @@ function State_basic(arg_X, arg_Y){
     this.isAirborne         = true;
     this.jumpVelocity       = 0;
     this.loadVelocity       = -3;
-    this.GRAVITY = .2;
+    this.GRAVITY = .1;
     this.VERTICAL_GRAVITY = 0;
 
 }
