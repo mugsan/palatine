@@ -21,9 +21,9 @@ Rect.prototype.move = function(dX, dY) {
 
 }
 
-Rect.prototype.interact = function(player){
-     player.VERTICAL_GRAVITY = 0;
-    
+Rect.prototype.interact = function(playerState){
+    playerState.VERTICAL_GRAVITY=0;
+
 }
 
 
@@ -34,7 +34,7 @@ function RedTile(arg_x, arg_y){
    
     this.isSolid= true;
     this.color  = "#FF0000";
-     player.VERTICAL_GRAVITY = 0;
+    player.Set_VERTICAL_GRAVITY(0);
     
 }
 
@@ -60,10 +60,10 @@ IceTile.prototype.interact = function(player){
     
     //console.log("hej");
     
-    player.mBody.color = "#FF00FF";
+    player.Get_mBody().color = "#FF00FF";
     
-    if(gCounter % 2 == 0) player.VERTICAL_GRAVITY = -1;
-    else player.VERTICAL_GRAVITY = 0;
+    if(gCounter % 2 == 0) player.Set_VERTICAL_GRAVITY(1);
+    else player.Set_VERTICAL_GRAVITY(0);
    // player.move(0, -1);
    
     

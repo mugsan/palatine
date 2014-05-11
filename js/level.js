@@ -28,16 +28,16 @@ function Level(){
 Level.prototype.update = function(){
 
     if (keyState[39] || keyState[68]){
-        this.mPlayer.mDir = 1;
-        this.mPlayer.hasMoved = true;
+        this.mPlayer.Set_mDir(1);
+        this.mPlayer.Set_hasMoved(true);
     }    
     if (keyState[37] || keyState[65]){
-        this.mPlayer.mDir = 2;
-        this.mPlayer.hasMoved = true;
+        this.mPlayer.Set_mDir(2);
+        this.mPlayer.Set_hasMoved(true);
     }
     if (keyState[38] || keyState[87]) {
-        if (!this.mPlayer.isAirborne) {
-            this.mPlayer.jumpVelocity = -5.2;
+        if (!this.mPlayer.Get_isAirborne()) {
+            this.mPlayer.Set_jumpVelocity(-5.2);
         }
     }
     this.mPlayer.update();
