@@ -94,11 +94,6 @@ Level.prototype.readBMP             = function(arg_string) {
 
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
     
-<<<<<<< HEAD
-    console.log("this: "+tImageData.data[0]);
-
-=======
->>>>>>> fbbd4eea7edff682ac09cdc7a9352a52349a3ebe
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
                 var tileData        = tImageData.data[(col + row * tCanvas.width) * 4];
