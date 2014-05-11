@@ -15,32 +15,45 @@
 function Level(){
     
  
-    this.mStage = new Array();
+    this.mStage                 = new Array();
+    this.mPlayer                = new Player();
     
-    this.width = 40;
-    this.height = 30;
+    this.width                  = 40;
+    this.height                 = 30;
     
     
-}
+};
 
+Level.prototype.update = function(){
 
-
-Level.prototype.render = function(){
-    
- 
-    for(var i = 0; i < this.height; i++){
-        
-     
-        for(var j = 0; j < this.width; j++){
-            
-            var currentTile = this.mStage[j + i * this.width];
-            if(currentTile.color != "#333")
-                currentTile.draw(gContext);
-            
-        }
-        
+    if (keyState[39] || keyState[68]){
+        this.mPlayer.mDir = 1;
+        this.mPlayer.hasMoved = true;
+    }    
+    if (keyState[37] || keyState[65]){
+        this.mPlayer.mDir = 2;
+        this.mPlayer.hasMoved = true;
     }
-    
+    if (keyState[38] || keyState[87]) {
+        if (!this.mPlayer.isAirborne) {
+            this.mPlayer.jumpVelocity = -5.2;
+        }
+    }
+    this.mPlayer.update();
+};
+
+
+
+Level.prototype.draw = function(){
+    gContext.beginPath();
+    gContext.fillStyle = "#333";
+    gContext.fillRect(0, 0, 320, 240);
+    gContext.closePath();
+    for (var i = 0, len = this.mStage.length; i < len; i++) {
+            var currentTile = this.mStage[i];
+            if(currentTile.color != "#333") currentTile.draw(gContext);
+    }
+    this.mPlayer.draw();
 }
 
 
@@ -63,8 +76,9 @@ Level.prototype.getTile = function(arg_X, arg_Y){
 //Reads BMP and populates mStage with tiles.
 
 Level.prototype.readBMP             = function(arg_string) {
-                        
-    var tCanvas                     = document.createElement("canvas");
+
+    var tStage                      = new Array(),
+        tCanvas                     = document.createElement("canvas");
         tCanvas.width               = 40;
         tCanvas.height              = 30;
 
