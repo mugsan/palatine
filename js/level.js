@@ -85,15 +85,20 @@ Level.prototype.readBMP             = function(arg_string) {
         tCanvas.height              = 30;
 
     var tContext                    = tCanvas.getContext("2d"),
-        tImage                      = document.getElementById("stageHTML");  
-        tImage.src                  = arg_string;
+        tImage                      = new Image();  
+        tImage.onload               = function() {
+        console.log("test");
+        console.log(arg_string);
 
         tContext.drawImage(tImage,0,0);
 
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
     
+<<<<<<< HEAD
     console.log("this: "+tImageData.data[0]);
 
+=======
+>>>>>>> fbbd4eea7edff682ac09cdc7a9352a52349a3ebe
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
                 var tileData        = tImageData.data[(col + row * tCanvas.width) * 4];
@@ -115,7 +120,7 @@ Level.prototype.readBMP             = function(arg_string) {
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;
-                        
+      
                         //player spawn
                     case 192: 
                                     this.mPlayer                = new Player(col * 8, col * 8);
@@ -126,5 +131,7 @@ Level.prototype.readBMP             = function(arg_string) {
                 }
             }
         }
-    gLoading = false;
+        gLoading = false;
+    };
+    tImage.src                      = arg_string;
 };

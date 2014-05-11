@@ -16,7 +16,6 @@ function GameState(){
 };
 
 GameState.prototype.run = function() {
-    console.log(State.GAMEOVER);
     switch (this.currentState) {
         case State.INIT:        this.currentState = State.LOADING;
                                 this.mLevel = new Level();
