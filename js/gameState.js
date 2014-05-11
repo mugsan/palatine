@@ -23,17 +23,13 @@ GameState.prototype.update = function() {
         case State.RUNNING:           this.mLevel.update();
                                 break;
         default:                this.mLevel.update();
-                                
-            
     }
 };
 
 
 
-function LevelObject(arg_path, arg_color_background, arg_color_foreground, arg_player_pos_x, arg_player_pos_y){
+function LevelData(arg_path, arg_color_background, arg_color_foreground){
     this.path                   = arg_path;
     this.color.background       = arg_color_background;
     this.color.foreground       = arg_color_foreground;
-    this.player.x               = arg_player_pos_x;
-    this.player.y               = arg_player_pos_y;
 }
