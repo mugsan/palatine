@@ -77,6 +77,7 @@ Level.prototype.getTile = function(arg_X, arg_Y){
 //Reads BMP and populates mStage with tiles.
 
 Level.prototype.readBMP             = function(arg_string) {
+    gLoading = true;
 
     var tStage                      = new Array(),
         tCanvas                     = document.createElement("canvas");
@@ -118,4 +119,5 @@ Level.prototype.readBMP             = function(arg_string) {
                 }
             }
         }
+    gLoading = false;
 };
