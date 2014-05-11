@@ -17,7 +17,7 @@ function Level(){
     
  
     this.mStage                 = new Array();
-    this.mPlayer                = new Player(22, 180);
+    
     
     this.width                  = 40;
     this.height                 = 30;
@@ -107,7 +107,10 @@ Level.prototype.readBMP             = function(arg_string) {
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;
-                    
+                        
+                        //player spawn
+                    case 192: 
+                                    this.mPlayer                = new Player(col * 8, col * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
                                     this.mStage[col + row * tCanvas.width] = r;

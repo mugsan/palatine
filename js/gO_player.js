@@ -11,6 +11,7 @@ function Player(arg_X, arg_Y){
     this.jumpVelocity       = 0;
     this.loadVelocity       = -3;
     this.GRAVITY = .2;
+    this.VERTICAL_GRAVITY = 0;
 
 }
 
@@ -25,7 +26,7 @@ Player.prototype.draw = function(){
 
 Player.prototype.update = function(){
     
-    var dX = 0;
+    var dX = this.VERTICAL_GRAVITY;
     var dY = 0;
     
     this.move(dX, dY);
@@ -33,8 +34,7 @@ Player.prototype.update = function(){
 };
 
 Player.prototype.move = function(dX, dY){
-    
-    console.log("ok"); 
+     
     if(this.isAirborne){
         this.jumpVelocity += this.GRAVITY;
         if(this.jumpVelocity > 4) this.jumpVelocity = 4;
