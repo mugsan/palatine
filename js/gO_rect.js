@@ -57,7 +57,8 @@ IceTile.prototype = Object.create(Rect.prototype);
 IceTile.prototype.interact = function(player){
     
     //console.log("hej");
-    player.hasMoved = true;
+    
+    player.mBody.color = "#FF00FF";
    
     
 }
