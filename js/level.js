@@ -102,8 +102,8 @@ Level.prototype.readBMP             = function(arg_string) {
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;
                         
-                    case 113:       console.log("all right!");
-                                    var r       = new IceTile(col * 8, row * 8, '#AAFFFF');
+                    case 113:     
+                                    var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF');
                                     r.isSolid   = true
                                     this.mStage[col + row * tCanvas.width] = r;
                                     break;
