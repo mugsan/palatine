@@ -1,7 +1,7 @@
 var State = {
     INIT:                       0, 
     GAMEOVER:                   1,
-    LOADSTAGE:                  2,
+    LOADING:                    2,
     RUNNING:                    3
 };
 
@@ -18,7 +18,9 @@ function GameState(){
 GameState.prototype.run = function() {
     console.log(State.GAMEOVER);
     switch (this.currentState) {
-        case State.INIT:        this.currentState = State.RUNNING;
+        case State.INIT:        this.currentState = State.LOADING;
+                                this.mLevel = new Level();
+                                this.mLevel.readBMP('./stage/stage1.bmp');
                                 break;
 
         case State.RUNNING:      
@@ -28,6 +30,8 @@ GameState.prototype.run = function() {
                                     this.mLevel.draw();
                                     gCounter = 0;
                                 }
+                                break;
+        case State.LOADING:     if(!gLoading) this.currentState = State.RUNNING;
                                 break;
         default:                this.mLevel.update();
     }
