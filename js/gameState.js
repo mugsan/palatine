@@ -15,11 +15,6 @@ function GameState(){
     this.mLevel.readBMP('./stage/stage1.bmp'); 
 };
 
-
-//GameState.prototype.start = function() {
-    //this.gameLoopID             = setInterval(this.run, 8);
-//}
-
 GameState.prototype.run = function() {
     console.log(State.GAMEOVER);
     switch (this.currentState) {

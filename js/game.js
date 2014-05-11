@@ -2,6 +2,8 @@ var gCanvas;
 var gContext;
 var gGameState;
 var gCounter = 0;
+var gLoopID = 0;
+var gLoading = false;
 
 
 
@@ -20,11 +22,10 @@ function main(){
     
     
     gGameState = new GameState();
-    setInterval(loop, 8);
+    gLoopID = setInterval(loop, 8);
 }
 
 function loop() {
-    console.log('loop');
     gGameState.run();
 }
 
