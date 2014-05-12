@@ -4,24 +4,18 @@
  *  Red     = 212
  *  LightBlue = 113
  */
-
-
-
-
-
-
-
-
-
-function Level(){
+function Level(arg_level_data){
     
  
+    console.log("point A");
     this.mStage                 = 0;                 
-    
-    
-    this.width                  = 40;
-    this.height                 = 30;
-    
+    this.path                   = arg_level_data.path;
+    this.colorBackground        = arg_level_data.colorBackground;
+    this.colorForeground        = arg_level_data.colorForeground;
+    this.width                  = arg_level_data.levelWidth;
+    this.height                 = arg_level_data.levelHeight;
+
+    this.readBMP(this.path);
     
 };
 
