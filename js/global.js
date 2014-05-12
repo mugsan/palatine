@@ -13,6 +13,11 @@ var State = {
     RUNNING:                    3
 };
 
+
+/*
+ *Array of levels
+ *LevelData(url, backgroundColor, foregroundColor, width(40), height(30))
+ */
 var gLEVELS = [
     new LevelData('./stage/stage1.bmp','#333','#442222',40,30)
 ];
