@@ -3,6 +3,13 @@
  *  White   = 255
  *  Red     = 212
  *  LightBlue = 113
+ *  
+ *  actualValue     : canvasValue
+ *  174             : 189
+ *  206             : 155
+ *  155             : 
+ *
+ *
  */
 function Level(arg_level_data){
     
@@ -84,11 +91,25 @@ Level.prototype.readBMP             = function(arg_string) {
 
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
     var tPixel                      = new Array();
+    console.log( 
+                    'pixel # 1: ' + tImageData.data[48]+
+                    'pixel # 2: ' + tImageData.data[52]+
+                    'pixel # 3: ' + tImageData.data[56]+
+                    'pixel # 4: ' + tImageData.data[60]+
+                    'pixel # 5: ' + tImageData.data[16]+
+                    'pixel # 6: ' + tImageData.data[20]+
+                    'pixel # 7: ' + tImageData.data[24]+
+                    'pixel # 8: ' + tImageData.data[28]+
+                    'pixel # 9: ' + tImageData.data[32]+
+                    'pixel # 0: ' + tImageData.data[36]+
+                    'pixel # 1: ' + tImageData.data[40]+
+                    'pixel # 2: ' + tImageData.data[44]); 
     
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
                 var tileData        = tImageData.data[(col + row * tCanvas.width) * 4];
                 switch (tileData) {
+                    
                     case 212:       var r       = new Rect(col * 8, row * 8, '#442222');
                                     r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;

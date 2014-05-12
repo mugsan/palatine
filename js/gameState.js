@@ -1,8 +1,8 @@
 
 function GameState(){
  
-    this.currentLevel           = 1;
-    this.currentState           = State.INIT;
+    this.currentLevel           = 0;
+    this.currentState           = State.PRELOAD;
 };
 
 GameState.prototype.run = function() {
