@@ -25,3 +25,10 @@ var gLEVELS = [
 ];
 
 
+
+var SOUND_EFFECTS = [
+    new Audio('./wav/jump.wav')
+
+];
+
+

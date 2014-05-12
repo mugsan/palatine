@@ -4,6 +4,7 @@
     src:                        url('../font/arcadeFont.ttf');
 }
 body {
+    font-family:                arcade, sans-serif;
     text-align:                 center;
     background:                 black;
 }
