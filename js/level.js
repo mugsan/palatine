@@ -17,7 +17,6 @@ function Level(){
     
  
     this.mStage                 = 0;                 
-    this.mPlayer                = 0;
     
     
     this.width                  = 40;
@@ -51,8 +50,8 @@ Level.prototype.draw = function(){
     gContext.fillStyle = "#333";
     gContext.fillRect(0, 0, 320, 240);
     gContext.closePath();
-    for (var i = 0, len = this.tPixel.length; i < len; i++) {
-            var currentTile = this.tPixel[i];
+    for (var i = 0, len = this.mStage.length; i < len; i++) {
+            var currentTile = this.mStage[i];
             if(currentTile.color != "#333") currentTile.draw(gContext);
     }
     this.mPlayer.draw();
@@ -70,7 +69,7 @@ Level.prototype.getTile = function(arg_X, arg_Y){
     }
     
     
-    return this.tPixel[(Math.floor(arg_X / 8) + Math.floor(arg_Y / 8) * 40)];   
+    return this.mStage[(Math.floor(arg_X / 8) + Math.floor(arg_Y / 8) * 40)];   
 };
 
 
