@@ -5,9 +5,22 @@
  *  LightBlue = 113
  *  
  *  actualValue     : canvasValue
+ *  199             : 212       Wall
+ *  100             : 113       ConveyerLeft
+ *  60              : 74        ConveyerRight
+ *  179             : 192       Player
+ *  40              : 25        Goal
+ *  100             : 121
+ *  221             : 230
+ *  156             : 174
+ *  64              : 82
+ *  209             : 218
+ *  173             : 187
+ *  88              : 107
  *  174             : 189
- *  206             : 155
- *  155             : 
+ *  206             : 218
+ *  176             : 190
+ *  173             : 189
  *
  *
  */
@@ -92,18 +105,18 @@ Level.prototype.readBMP             = function(arg_string) {
     var tImageData                  = tContext.getImageData(0, 0, tCanvas.width, tCanvas.height);
     var tPixel                      = new Array();
     console.log( 
-                    'pixel # 1: ' + tImageData.data[48]+
-                    'pixel # 2: ' + tImageData.data[52]+
-                    'pixel # 3: ' + tImageData.data[56]+
-                    'pixel # 4: ' + tImageData.data[60]+
-                    'pixel # 5: ' + tImageData.data[16]+
-                    'pixel # 6: ' + tImageData.data[20]+
-                    'pixel # 7: ' + tImageData.data[24]+
-                    'pixel # 8: ' + tImageData.data[28]+
-                    'pixel # 9: ' + tImageData.data[32]+
-                    'pixel # 0: ' + tImageData.data[36]+
-                    'pixel # 1: ' + tImageData.data[40]+
-                    'pixel # 2: ' + tImageData.data[44]); 
+                    'pixel # 1: ' + tImageData.data[0]+
+                    'pixel # 1: ' + tImageData.data[4]+
+                    'pixel # 1: ' + tImageData.data[8]+
+                    'pixel # 1: ' + tImageData.data[12]+
+                    'pixel # 1: ' + tImageData.data[16]+
+                    'pixel # 2: ' + tImageData.data[20]+
+                    'pixel # 3: ' + tImageData.data[24]+
+                    'pixel # 4: ' + tImageData.data[28]+
+                    'pixel # 5: ' + tImageData.data[32]+
+                    'pixel # 6: ' + tImageData.data[36]+
+                    'pixel # 7: ' + tImageData.data[40]+
+                    'pixel # 8: ' + tImageData.data[44]);
     
         for (var row = 0; row < tCanvas.height; row++) {
             for (var col = 0; col < tCanvas.width; col++) {
@@ -125,6 +138,11 @@ Level.prototype.readBMP             = function(arg_string) {
                         
                     case 74:        var r       = new ConveyorBeltTile(col * 8, row * 8, '#AAFFFF', 1);
                                     r.isSolid   = true
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+
+                    case 25:        var r       = new GoalTile(col * 8, row * 8, '#FFFFFF');
+                                    r.isSolid   = false;
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       
