@@ -10,8 +10,8 @@ function main(){
     gCanvas = document.getElementById("mCanvas");
     gContext = gCanvas.getContext("2d");
     
-    gCanvas.width = 320;
-    gCanvas.height = 240;
+    gCanvas.width       = 320;
+    gCanvas.height      = 240;
     
     gContext.fillStyle = "#FF00FF";
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);

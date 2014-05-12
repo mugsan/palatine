@@ -1,10 +1,11 @@
 var gCanvas;
 var gContext;
 var gGameState;
-var gCounter = 0;
-var gLoopID = 0;
-var gLoading = false;
-var keyState = {};    
+var gTileWidth                  = 8;
+var gCounter                    = 0;
+var gLoopID                     = 0;
+var gLoading                    = false;
+var keyState                    = {};    
 
 var State = {
     INIT:                       0, 
