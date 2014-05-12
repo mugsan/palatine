@@ -1,4 +1,8 @@
 @import url("./default.css");
+@font-face {
+    font-family:                arcade;
+    src:                        url('../font/arcadeFont.ttf');
+}
 body {
     text-align:                 center;
     background:                 black;
