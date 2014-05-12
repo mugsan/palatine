@@ -26,6 +26,7 @@ GameState.prototype.run = function() {
                                 gCounter += 1;
                                 if (gCounter == 3) {
                                     this.mLevel.draw();
+                                    this.drawLevelStatus();
                                     gCounter = 0;
                                 }
                                 break;
@@ -33,6 +34,16 @@ GameState.prototype.run = function() {
         default:                this.mLevel.update();
     }
 };
+
+GameState.prototype.drawLevelStatus = function() {
+    var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L' : ((this.currentLevel + 1) + "/" + gLEVELS.length);
+        gContext.font           = "20px arcade";
+        gContext.fillStyle      = "#888";
+
+        gContext.fillText(tPrint, 20,20);
+
+};
+
 
 function LevelData(arg_path, arg_color_background, arg_color_foreground, arg_color_conveyerbelt, arg_color_goal, arg_level_width, arg_level_height){
     this.path                   = arg_path;
@@ -42,5 +53,7 @@ function LevelData(arg_path, arg_color_background, arg_color_foreground, arg_col
     this.colorGoal              = arg_color_goal;
     this.levelWidth             = arg_level_width;
     this.levelHeight            = arg_level_height;
-}
+};
+
+
 

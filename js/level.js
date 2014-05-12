@@ -43,7 +43,7 @@ Level.prototype.update = function(){
         this.mPlayer.mDir = 2;
         this.mPlayer.hasMoved = true;
     }
-    if (keyState[38] || keyState[87]) {
+    if (keyState[38] || keyState[87] || keyState[32]) {
         if (!this.mPlayer.isAirborne) {
             this.mPlayer.currentState.jumpVelocity = -5.2;
         }
