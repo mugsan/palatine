@@ -13,10 +13,8 @@ function main(){
     gCanvas.width = 320;
     gCanvas.height = 240;
     
-    
     gContext.fillStyle = "#FF00FF";
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
-    
     
     gGameState = new GameState();
     gLoopID = setInterval(loop, 8);

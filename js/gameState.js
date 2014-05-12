@@ -1,11 +1,8 @@
 
 function GameState(){
  
-    console.log("point A in gamestate constructor.");
     this.currentLevel           = 0;
     this.currentState           = State.INIT;
-    this.drawCount              = 0;
-    this.gameLoopID             = 0;
 };
 
 GameState.prototype.run = function() {
@@ -13,7 +10,6 @@ GameState.prototype.run = function() {
     switch (this.currentState) {
         case State.INIT:        this.currentState = State.LOADING;
                                 gLoading = true;
-                                console.log("point B in gamestate constructor.");
                                 this.mLevel = new Level(gLEVELS[this.currentLevel]);
                                 break;
 
