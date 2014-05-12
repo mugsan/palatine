@@ -36,16 +36,16 @@ function Level(arg_level_data){
 Level.prototype.update = function(){
 
     if (keyState[39] || keyState[68]){
-        this.mPlayer.Set_mDir(1);
-        this.mPlayer.Set_hasMoved(true);
+        this.mPlayer.mDir = 1;
+        this.mPlayer.hasMoved = true;
     }    
     if (keyState[37] || keyState[65]){
-        this.mPlayer.Set_mDir(2);
-        this.mPlayer.Set_hasMoved(true);
+        this.mPlayer.mDir = 2;
+        this.mPlayer.hasMoved = true;
     }
     if (keyState[38] || keyState[87]) {
-        if (!this.mPlayer.Get_isAirborne()) {
-            this.mPlayer.Set_jumpVelocity(-5.2);
+        if (!this.mPlayer.isAirborne) {
+            this.mPlayer.currentState.jumpVelocity = -5.2;
         }
     }
     this.mPlayer.update();
@@ -68,15 +68,12 @@ Level.prototype.draw = function(){
 
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
-    
     if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > gCanvas.height || arg_Y < 0){
         r = new Rect(0, 0, this.colorBackground);
         r.isSolid = false;
         return r;
     }
-    
-    
-    return this.mStage[(Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * this.width)];   
+    return this.mStage[Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * this.width];   
 };
 
 

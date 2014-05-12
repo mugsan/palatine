@@ -20,10 +20,11 @@ Rect.prototype.move = function(dX, dY) {
     this.top    += parseInt(dY);
     this.bottom += parseInt(dY);
 
-}
+};
 
-Rect.prototype.interact = function(playerState){
-    playerState.VERTICAL_GRAVITY=0;
+Rect.prototype.interact = function(arg_player){
+    console.log("rect interact");
+    arg_player.currentState.VERTICAL_GRAVITY = 0;
 
 }
 
@@ -60,10 +61,10 @@ function ConveyorBeltTile(arg_x, arg_y, arg_color, arg_dir){
 
 ConveyorBeltTile.prototype = Object.create(Rect.prototype);
 
-ConveyorBeltTile.prototype.interact = function(playerState){
+ConveyorBeltTile.prototype.interact = function(player){
   
-    if(this.counter % 2 == 0)   playerState.VERTICAL_GRAVITY = this.dir;
-    else playerState.VERTICAL_GRAVITY = 0;
+    if(this.counter % 2 == 0)   player.currentState.VERTICAL_GRAVITY = this.dir;
+    else player.currentState.VERTICAL_GRAVITY = 0;
    
     if(this.counter == 1000) this.counter = 0;
     this.counter++; 
