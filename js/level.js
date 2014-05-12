@@ -7,15 +7,13 @@
 function Level(arg_level_data){
     
  
-    console.log("point A");
-    this.mStage                 = 0;                 
-    this.path                   = arg_level_data.path;
+    this.mStage                 = 0;        
     this.colorBackground        = arg_level_data.colorBackground;
     this.colorForeground        = arg_level_data.colorForeground;
     this.width                  = arg_level_data.levelWidth;
     this.height                 = arg_level_data.levelHeight;
 
-    this.readBMP(this.path);
+    this.readBMP(arg_level_data.path);
     
 };
 
@@ -110,8 +108,7 @@ Level.prototype.readBMP             = function(arg_string) {
                                     break;
       
                         //player spawn
-                    case 192:       console.log('this should spawn a player');
-                                    gGameState.mLevel.mPlayer                = new Player(col * 8, col * 8);
+                    case 192:       gGameState.mLevel.mPlayer                = new Player(col * 8, col * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
                                     tPixel[col + row * tCanvas.width] = r;
