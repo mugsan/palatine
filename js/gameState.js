@@ -16,22 +16,25 @@ function GameState(){
 };
 
 GameState.prototype.run = function() {
+
     switch (this.currentState) {
         case State.INIT:        this.currentState = State.LOADING;
+                                gLoading = true;
                                 this.mLevel = new Level();
                                 this.mLevel.readBMP('./stage/stage1.bmp');
                                 break;
 
-        case State.RUNNING:      
-                                this.mLevel.update();
+        case State.RUNNING:     this.mLevel.update();
                                 gCounter += 1;
                                 if (gCounter == 3) {
                                     this.mLevel.draw();
                                     gCounter = 0;
                                 }
                                 break;
+
         case State.LOADING:     if(!gLoading) this.currentState = State.RUNNING;
                                 break;
+
         default:                this.mLevel.update();
     }
 };

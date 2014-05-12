@@ -16,7 +16,8 @@
 function Level(){
     
  
-    this.mStage;                 
+    this.mStage                 = 0;                 
+    this.mPlayer                = 0;
     
     
     this.width                  = 40;
@@ -87,8 +88,6 @@ Level.prototype.readBMP             = function(arg_string) {
     var tContext                    = tCanvas.getContext("2d"),
         tImage                      = new Image();  
         tImage.onload               = function() {
-        console.log("test");
-        console.log(arg_string);
 
         tContext.drawImage(tImage,0,0);
 
@@ -118,7 +117,7 @@ Level.prototype.readBMP             = function(arg_string) {
                                     break;
       
                         //player spawn
-                    case 192: 
+                    case 192:       console.log('this should spawn a player');
                                     this.mPlayer                = new Player(col * 8, col * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
