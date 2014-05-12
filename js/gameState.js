@@ -8,20 +8,26 @@ function GameState(){
 GameState.prototype.run = function() {
 
     switch (this.currentState) {
-        case State.INIT:        this.currentState = State.LOADING;
+        case State.PRELOAD:     this.currentState = State.LOADING;
                                 gLoading = true;
                                 this.mLevel = new Level(gLEVELS[this.currentLevel]);
                                 break;
 
+        case State.LOADING:     if(!gLoading) this.currentState = State.RUNNING;
+                                break;
+
         case State.RUNNING:     this.mLevel.update();
+                                switch (this.mLevel.mPlayer.getState()) {
+                                    case 0:         this.currentLevel       =-1;//DEAD
+                                    case 1:         this.currentLevel      += 1;//VICTORY
+                                                    this.currentState       = State.PRELOAD;
+                                                    break;
+                                }
                                 gCounter += 1;
                                 if (gCounter == 3) {
                                     this.mLevel.draw();
                                     gCounter = 0;
                                 }
-                                break;
-
-        case State.LOADING:     if(!gLoading) this.currentState = State.RUNNING;
                                 break;
 
         default:                this.mLevel.update();
