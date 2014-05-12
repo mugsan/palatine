@@ -1,7 +1,7 @@
 
 function GameState(){
  
-    this.currentLevel           = 0;
+    this.currentLevel           = 1;
     this.currentState           = State.INIT;
 };
 
