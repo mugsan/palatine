@@ -17,8 +17,6 @@
  *  206             : 218
  *  176             : 190
  *  173             : 189
- *
- *
  */
 function Level(arg_level_data){
     
@@ -36,12 +34,16 @@ function Level(arg_level_data){
 Level.prototype.update = function(){
 
     if (keyState[39] || keyState[68]){
-        this.mPlayer.mDir = 1;
-        this.mPlayer.hasMoved = true;
+        
+        this.mPlayer.mDir       = 1;
+        this.mPlayer.hasMoved   = true;
+
     }    
     if (keyState[37] || keyState[65]){
-        this.mPlayer.mDir = 2;
-        this.mPlayer.hasMoved = true;
+
+        this.mPlayer.mDir       = 2;
+        this.mPlayer.hasMoved   = true;
+
     }
     if (keyState[38] || keyState[87] || keyState[32]) {
         if (!this.mPlayer.isAirborne) {
