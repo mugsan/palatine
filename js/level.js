@@ -57,7 +57,7 @@ Level.prototype.update = function(){
 
 Level.prototype.draw = function(){
     gContext.beginPath();
-    gContext.fillStyle = "#333";
+    gContext.fillStyle = this.colorBackground;
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
     gContext.closePath();
     for (var i = 0, len = this.mStage.length; i < len; i++) {
@@ -71,14 +71,14 @@ Level.prototype.draw = function(){
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
     
-    if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > 240 || arg_Y < 0){
-        r = new Rect(0, 0, "#333");
+    if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > gCanvas.height || arg_Y < 0){
+        r = new Rect(0, 0, this.colorBackground);
         r.isSolid = false;
         return r;
     }
     
     
-    return this.mStage[(Math.floor(arg_X / 8) + Math.floor(arg_Y / 8) * 40)];   
+    return this.mStage[(Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * this.width)];   
 };
 
 
@@ -90,8 +90,8 @@ Level.prototype.readBMP             = function(arg_string) {
 
     var tStage                      = new Array(),
         tCanvas                     = document.createElement("canvas");
-        tCanvas.width               = 40;
-        tCanvas.height              = 30;
+        tCanvas.width               = this.width;
+        tCanvas.height              = this.height;
 
     var tContext                    = tCanvas.getContext("2d"),
         tImage                      = new Image();  
@@ -132,7 +132,7 @@ Level.prototype.readBMP             = function(arg_string) {
       
                         //player spawn
                     case 192:       gGameState.mLevel.mPlayer                = new Player(col * 8, row * 8);
-                    default:        var r       = new Rect(col * 8, row * 8, '#333');
+                    default:        var r       = new Rect(col * 8, row * 8, this.colorBackground);
                                     r.isSolid   = false 
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
