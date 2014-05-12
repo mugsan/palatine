@@ -38,6 +38,8 @@ Player.prototype.update = function(){
 Player.prototype.changeState = function(newState){  // NewState: O = basic, dead =1; red=2;helm=3;
     this.currentState = this.diffrentStates[newState];
     this.stateIndex = newState;
+    
+    console.log("h: "+this.currentState);
 }
 
 
@@ -156,6 +158,8 @@ function State_basic(arg_X, arg_Y){
     this.loadVelocity       = -3;
     this.GRAVITY = .1;
     this.VERTICAL_GRAVITY = 0;
+    
+    console.log("state basic const");
 
 }
 
@@ -177,6 +181,8 @@ State_basic.prototype.update = function(){
     this.move(dX, dY);
     
 };
+
+
 
 State_basic.prototype.move = function(dX, dY){
      
@@ -250,7 +256,7 @@ State_basic.prototype.collision = function(arg_dX, arg_dY){
 //-------------------------------State win -------------------------
 
 function State_win(arg_X, arg_Y){
-    State_basic.call(arg_X, arg_Y);
+    State_basic.call(this, arg_X, arg_Y);
    
 }
 State_win.prototype = Object.create(State_basic.prototype);
@@ -260,8 +266,6 @@ State_win.prototype = Object.create(State_basic.prototype);
 
 function State_dead(arg_X, arg_Y){
     
-    this.width              = 4;
-    this.height             = 4;
     this.mBody              = new Rect(arg_X, arg_Y + 8, "#999");
     this.mHead              = new Rect(arg_X, arg_Y, "#777");
     this.speed              = 1;
@@ -301,8 +305,6 @@ State_dead.prototype.collision = function(arg_dX, arg_dY){
 
 function State_red(arg_X, arg_Y){
     
-    this.width              = 4;
-    this.height             = 4;
     this.mBody              = new Rect(arg_X, arg_Y + 8, "#FF0000");
     this.mHead              = new Rect(arg_X, arg_Y, "#777");
     this.speed              = 1;
@@ -377,8 +379,6 @@ State_red.prototype.move = function(dX, dY){
 
 function State_helm(arg_X, arg_Y){
     
-    this.width              = 4;
-    this.height             = 4;
     this.mBody              = new Rect(arg_X, arg_Y + 8, "#999");
     this.mHead              = new Rect(arg_X, arg_Y, "#777");
     this.speed              = 1;
@@ -456,8 +456,19 @@ State_helm.prototype.collision = function(arg_dX, arg_dY){
     var collided = false;
     
     for(var i = 0; i < 4; i++){
-       if(gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid){
-            gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).interact(this);
+        var currentTile = gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY);
+       if(currentTile.isSolid){
+           
+           //destroy tile
+           if(currentTile.isDestructable){
+               
+                var r = new Rect(col * 8, row * 8, '#333');
+                r.isSolid   = false 
+                gGameState.mLevel.mStage[this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY] = r;
+               
+           }
+               
+            currentTile.interact(this);
             collided = true;
            return true;
         }

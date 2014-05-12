@@ -142,12 +142,11 @@ Level.prototype.readBMP             = function(arg_string) {
                                     break;
 
                     case 25:        var r       = new GoalTile(col * 8, row * 8, '#FFFFFF');
-                                    r.isSolid   = false;
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       
                         //player spawn
-                    case 192:       gGameState.mLevel.mPlayer                = new Player(col * 8, col * 8);
+                    case 192:       gGameState.mLevel.mPlayer                = new Player(col * 8, row * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
                                     tPixel[col + row * tCanvas.width] = r;

@@ -6,6 +6,7 @@ function Rect(arg_x, arg_y, arg_color){
     this.bottom = arg_y + this.width;
     this.color  = arg_color;
     this.isSolid= true;
+    this.isDestructable = true;
 }
 
 Rect.prototype.draw = function() {
@@ -80,13 +81,15 @@ function GoalTile(arg_x, arg_y, arg_color){
     
     Rect.call(this, arg_x, arg_y, arg_color);
     
-    this.isSolid = false;   
+    this.isSolid = true;   
 }
 
 GoalTile.prototype = Object.create(Rect.prototype);
 
 GoalTile.prototype.interact = function(playerState){
-    playerState.changeState(2);   
+    
+    console.log("baaah");
+    gGameState.mLevel.mPlayer.changeState(2);  
 }
   
     
