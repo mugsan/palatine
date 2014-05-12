@@ -8,10 +8,10 @@ var gLoading                    = false;
 var keyState                    = {};    
 
 var State = {
-    INIT:                       0, 
     GAMEOVER:                   1,
     LOADING:                    2,
-    RUNNING:                    3
+    RUNNING:                    3,
+    PRELOAD:                    4
 };
 
 
