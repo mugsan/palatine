@@ -1,9 +1,3 @@
-var State = {
-    INIT:                       0, 
-    GAMEOVER:                   1,
-    LOADING:                    2,
-    RUNNING:                    3
-};
 
 function GameState(){
  
@@ -46,6 +40,3 @@ function LevelData(arg_path, arg_color_background, arg_color_foreground, arg_lev
     this.levelHeight            = arg_level_height;
 }
 
-var gLEVELS = [
-    new LevelData('./stage/stage1.bmp','#333','#442222',40,30)
-];
