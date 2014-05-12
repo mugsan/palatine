@@ -140,7 +140,8 @@ Level.prototype.readBMP             = function(arg_string) {
                                     r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
-
+                    
+                    //GoalTile
                     case 25:        var r       = new GoalTile(col * 8, row * 8, '#FFFFFF');
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;

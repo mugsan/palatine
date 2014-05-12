@@ -80,15 +80,13 @@ ConveyorBeltTile.prototype.draw = function() {
 function GoalTile(arg_x, arg_y, arg_color){
     
     Rect.call(this, arg_x, arg_y, arg_color);
-    
-    this.isSolid = true;   
+   
 }
 
 GoalTile.prototype = Object.create(Rect.prototype);
 
 GoalTile.prototype.interact = function(playerState){
-    
-    console.log("baaah");
+
     gGameState.mLevel.mPlayer.changeState(2);  
 }
   
