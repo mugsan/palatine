@@ -117,7 +117,7 @@ Level.prototype.readBMP             = function(arg_string) {
       
                         //player spawn
                     case 192:       console.log('this should spawn a player');
-                                    this.mPlayer                = new Player(col * 8, col * 8);
+                                    gGameState.mLevel.mPlayer                = new Player(col * 8, col * 8);
                     default:        var r       = new Rect(col * 8, row * 8, '#333');
                                     r.isSolid   = false 
                                     tPixel[col + row * tCanvas.width] = r;
@@ -126,7 +126,7 @@ Level.prototype.readBMP             = function(arg_string) {
             }
         }
         gLoading = false;
-        this.mStage = tPixel;
+        gGameState.mLevel.mStage = tPixel;
 
     };
     tImage.src                      = arg_string;
