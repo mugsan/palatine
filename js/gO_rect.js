@@ -23,26 +23,32 @@ Rect.prototype.move = function(dX, dY) {
 };
 
 Rect.prototype.interact = function(arg_player){
-    console.log("rect interact");
+    
     arg_player.currentState.VERTICAL_GRAVITY = 0;
+    
+     if(arg_player.stateID == 4 && arg_player.underRect(this)){
+            this.isSolid = false;
+            this.color = "#333";
+    }
 
 }
 
 
-
+// ----- RED JUMPTILLLEEEEEEEE ----------
 function RedTile(arg_x, arg_y){
     
     Rect.call(this, arg_x, arg_y);
    
     this.isSolid= true;
     this.color  = "#FF0000";
-    //player.Set_VERTICAL_GRAVITY(0);
     
 }
 
 RedTile.prototype = Object.create(Rect.prototype);
 
 RedTile.prototype.interact = function(player){
+    
+     gGameState.mLevel.mPlayer.changeState(3);
     
    
 }
@@ -91,6 +97,20 @@ GoalTile.prototype.interact = function(playerState){
     gGameState.mLevel.mPlayer.changeState(2);  
 }
   
+
+
+//------- HAMMER TILE ------------------/
+
+function HammerTile(arg_x, arg_y){
+    Rect.call(this, arg_x, arg_y);
+    this.color = "#FF00FF";
+}
+
+HammerTile.prototype = Object.create(Rect.prototype);
+
+HammerTile.prototype.interact = function(player){
+    gGameState.mLevel.mPlayer.changeState(4);
+}
     
 
 

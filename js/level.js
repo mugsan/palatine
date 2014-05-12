@@ -10,10 +10,10 @@
  *  221             : 230
  *  156             : 174
  *  64              : 82 
- *  209             : 218
+ *  209             : 218           : HammerTile
  *  173             : 187
  *  88              : 107
- *  174             : 189
+ *  174             : 189           : RedTile
  *  206             : 218
  *  176             : 190
  *  173             : 189
@@ -131,6 +131,16 @@ Level.prototype.readBMP             = function(arg_level_data) {
                     
                     //GoalTile
                     case 25:        var r       = new GoalTile(col * gTileWidth, row * gTileWidth, colorGoal);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                      //Red tile
+                    case 189:       var r = new RedTile(col * 8, row * 8);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                     
+                    //Hammer tile
+                    case 218:       var r = new HammerTile(col * 8, row * 8);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

@@ -12,8 +12,8 @@ function Player(arg_X, arg_Y){
                                 new State_red(),
                                 new State_helm() ];      //create a state list
 
-    this.currentState       =   this.diffrentStates[3];   //set basic state
-    this.stateID            =   3;
+    this.currentState       =   this.diffrentStates[0];   //set basic state
+    this.stateID            =   0;
     this.mDir               =   0;
     this.hasMoved           =   false;
     this.isAirborne         =   true;
@@ -23,6 +23,7 @@ Player.prototype.draw = function(){
     
     
     this.mBody.color = this.currentState.colorBody;
+    this.mHead.color = this.currentState.colorHead;
     this.mBody.draw();
     this.mHead.draw();
           
@@ -83,6 +84,10 @@ Player.prototype.move = function(dX, dY){
     
 };
 
+Player.prototype.underRect = function(rect){  
+    return rect.top <= this.mHead.top && (rect.left < this.mHead.right && rect.right > this.mHead.left);   
+}
+
 Player.prototype.collision = function(arg_dX, arg_dY){
     
     arg_dX = parseInt(arg_dX);
@@ -93,12 +98,12 @@ Player.prototype.collision = function(arg_dX, arg_dY){
        if(  gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid){
             gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).interact(this);
             collided = true;
-            return true;
+            
         }
        if(  gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid){
             gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).interact(this);
             collided = true;
-            return true;
+          
         }
     }
     return collided;
@@ -108,8 +113,10 @@ function State_basic(){
     
     this.speed              = 1;
     this.jumpVelocity       = 0;
-    this.GRAVITY            = .1;
+    this.GRAVITY            = .17;
     this.VERTICAL_GRAVITY   = 0;
+    this.colorBody          = '#777';
+    this.colorHead          = '#999';
 }
 
 function State_win(){
@@ -131,6 +138,7 @@ function State_red(){
     this.GRAVITY            = .1;
     this.VERTICAL_GRAVITY   = 0;
     this.colorBody          = '#AA0000';
+    this.colorHead          = '#999';
 }
 
 function State_helm(){
@@ -139,5 +147,7 @@ function State_helm(){
     this.jumpVelocity       = 0;
     this.GRAVITY            = .2;
     this.VERTICAL_GRAVITY   = 0;
+    this.colorBody          = '#777';
+    this.colorHead          = '#000';
 }
 
