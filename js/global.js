@@ -17,11 +17,11 @@ var State = {
 
 /*
  *Array of levels
- *LevelData(url, backgroundColor, foregroundColor, width(40), height(30))
+ *LevelData(url, backgroundColor, foregroundColor, conveyerBelt, goalTile, width(40), height(30))
  */
 var gLEVELS = [
-    new LevelData('./stage/stage1.bmp','#333','#442222',40,30),
-    new LevelData('./stage/stage2.bmp','#333','#442222',40,30)
+    new LevelData('./stage/stage1.bmp','#333','#442222',"#FFFFFF","#424242",40,30),
+    new LevelData('./stage/stage2.bmp','#333','#442222',"#FFFFFF","#424242",40,30)
 ];
 
 
