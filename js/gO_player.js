@@ -108,7 +108,6 @@ Player.prototype.collision = function(arg_dX, arg_dY){
 
 
 function Player(arg_X, arg_Y){
-    console.log('tried to create a player');
     this.diffrentStates=[new State_basic(arg_X, arg_Y),
                          new State_dead(arg_X, arg_Y),
                          new State_red(arg_X, arg_Y),
