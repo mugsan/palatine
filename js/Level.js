@@ -9,12 +9,12 @@
  *  100             : 121
  *  221             : 230           : Antigravity
  *  156             : 174
- *  64              : 82 
+ *  64              : 82            : Death by chocolate
  *  209             : 218           : HammerTile
  *  173             : 187
  *  88              : 107
  *  174             : 189           : RedTile
- *  206             : 218
+ *  206             : 218          
  *  176             : 190
  *  173             : 189
  */
@@ -139,6 +139,10 @@ Level.prototype.readBMP             = function(arg_path) {
                         
                     //Antigravity
                     case 230:       var r = new AntiGravityTile(col * 8, row * 8);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                    case 82:       var r = new DeathTile(col * 8, row * 8);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

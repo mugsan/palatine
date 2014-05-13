@@ -128,6 +128,19 @@ HammerTile.prototype = Object.create(Rect.prototype);
 HammerTile.prototype.interact = function(player){
     gGameState.mLevel.mPlayer.changeState(4);
 }
+
+//------- Death TILE------------------/
+
+function DeathTile(arg_x, arg_y){
+    Rect.call(this, arg_x, arg_y);
+    this.color = "#FF0000";
+}
+
+DeathTile.prototype = Object.create(Rect.prototype);
+
+DeathTile.prototype.interact = function(player){
+    gGameState.mLevel.mPlayer.changeState(1);
+}
     
 
 
