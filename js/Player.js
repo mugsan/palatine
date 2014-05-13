@@ -157,7 +157,7 @@ function State_red(){
     this.VERTICAL_GRAVITY   = 0;
     this.colorBody          = '#AA0000';
     this.colorHead          = '#999';
-    this.jumpForce = -5.5;
+    this.jumpForce          = -5.5;
 }
 
 function State_helm(){

@@ -18,9 +18,8 @@ GameState.prototype.run = function() {
 
         case State.RUNNING:     this.mLevel.update();
                                 switch (this.mLevel.mPlayer.stateID) {
-                                    case 1:         this.currentLevel       =-1;//DEAD
-                                    case 2:         this.currentLevel      += 1;//VICTORY
-                                                    this.currentState       = State.PRELOAD;
+                                    case 2:         this.currentLevel      += 1;
+                                    case 1:         this.currentState       = State.PRELOAD;
                                                     break;
                                 }
                                 
