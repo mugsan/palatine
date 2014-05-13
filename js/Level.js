@@ -104,20 +104,17 @@ Level.prototype.readBMP             = function(arg_path) {
                 switch (tileData) {
                     
                     case 212:       var r       = new Rect(col * gTileWidth, row * gTileWidth, gColor.wall);
-                                    r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
                         //conveyor belt moving to the left
                     case 113:     
                                     var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, gColor.conveyerLeft, -1);
-                                    r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
                         
                     case 74:        var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, gColor.conveyerLeft, 1);
-                                    r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
@@ -127,21 +124,21 @@ Level.prototype.readBMP             = function(arg_path) {
                                     break;
                         
                       //Red tile
-                    case 189:       var r = new RedTile(col * gTileWidth, row * gTileWidth);
+                    case 189:       var r = new RedTile(col * gTileWidth, row * gTileWidth, gColor.jump);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                      
                     //Hammer tile
-                    case 218:       var r = new HammerTile(col * gTileWidth, row * gTileWidth);
+                    case 218:       var r = new HammerTile(col * gTileWidth, row * gTileWidth, gColor.helm);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
                     //Antigravity
-                    case 230:       var r = new AntiGravityTile(col * 8, row * 8);
+                    case 230:       var r = new AntiGravityTile(col * gTileWidth, row * gTileWidth, gColor.anti);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
-                    case 82:       var r = new DeathTile(col * 8, row * 8);
+                    case 82:       var r = new DeathTile(col * gTileWidth, row * gTileWidth, gColor.dead);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

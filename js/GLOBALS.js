@@ -32,10 +32,14 @@ var gStage = {
 var gColorNormal = {
 
     background                  : "#333333",
-    wall                        : "#442222",
     conveyerLeft                : "#424242",
     conveyerRight               : "#424242",
-    goal                        : "#FFFFFF"
+    wall                        : "#442222",
+    goal                        : "#FFFFFF",
+    jump                        : "#FF0000",
+    helm                        : "#00FF00",
+    anti                        : "#0000FF",
+    dead                        : "0000000"
 
 };
 

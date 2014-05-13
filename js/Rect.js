@@ -28,19 +28,19 @@ Rect.prototype.interact = function(arg_player){
     
      if(arg_player.stateID == 4 && arg_player.underRect(this)){
             this.isSolid = false;
-            this.color = "#333";
+            this.color = gColor.background; 
     }
 
 }
 
 
 // ----- RED JUMPTILLLEEEEEEEE ----------
-function RedTile(arg_x, arg_y){
+function RedTile(arg_x, arg_y, arg_color){
     
     Rect.call(this, arg_x, arg_y);
    
     this.isSolid= true;
-    this.color  = "#FF0000";
+    this.color  = arg_color;
     
 }
 
@@ -88,7 +88,7 @@ ConveyorBeltTile.prototype.draw = function() {
     gContext.fillRect(this.left, this.top, this.width, this.width);
 };
 
-
+//-------------Goal Tile-------------------//
 function GoalTile(arg_x, arg_y, arg_color){
     
     Rect.call(this, arg_x, arg_y, arg_color);
@@ -105,9 +105,8 @@ GoalTile.prototype.interact = function(playerState){
 
 //----------- Anti gravity tile ---------/
 
-function AntiGravityTile(arg_x, arg_y){
-    Rect.call(this, arg_x, arg_y);   
-    this.color = "#00FF00";
+function AntiGravityTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);   
 }
 
 AntiGravityTile.prototype = Object.create(Rect.prototype);
@@ -118,9 +117,8 @@ AntiGravityTile.prototype.interact = function(player){
 }
 //------- Helmet TILE ------------------/
 
-function HammerTile(arg_x, arg_y){
-    Rect.call(this, arg_x, arg_y);
-    this.color = "#FF00FF";
+function HammerTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
 }
 
 HammerTile.prototype = Object.create(Rect.prototype);
@@ -131,9 +129,8 @@ HammerTile.prototype.interact = function(player){
 
 //------- Death TILE------------------/
 
-function DeathTile(arg_x, arg_y){
-    Rect.call(this, arg_x, arg_y);
-    this.color = "#FF0000";
+function DeathTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
 }
 
 DeathTile.prototype = Object.create(Rect.prototype);
