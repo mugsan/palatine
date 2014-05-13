@@ -19,7 +19,7 @@ var State = {
 var gSound = { 
     jump                        : new AudioQue('./wav/jump.wav',4),
     dead                        : new AudioQue('./wav/dead.wav',1),
-    breakTile                   : new AudioQue('./wav/break.wav',2),
+    breakTile                   : new AudioQue('./wav/break.wav',4),
     swapState                   : new AudioQue('./wav/swap.wav',1),
     win                         : new AudioQue('./wav/win.wav',1),
     antiGrav                    : new AudioQue('./wav/antiGrav2.wav',2),
@@ -41,7 +41,7 @@ var gColorNormal = {
     goal                        : "#FFFFFF",
     jump                        : "#FF8000",
     helm                        : "#00FF00",
-    anti                        : "#0000FF",
+    anti                        : "#000000",
     dead                        : "#FF0000"
 };
 

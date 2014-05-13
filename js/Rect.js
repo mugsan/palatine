@@ -84,12 +84,6 @@ ConveyorBeltTile.prototype.interact = function(player){
        
 }
 
-ConveyorBeltTile.prototype.draw = function() {
-    if( (this.counter + this.x) % 1000 > 20 && (this.counter + this.x) < 40) gContext.fillStyle = "#AAA";
-    else gContext.fillStyle = "#CCC";
-    gContext.fillRect(this.left, this.top, this.width, this.width);
-};
-
 //-------------Goal Tile-------------------//
 function GoalTile(arg_x, arg_y, arg_color){
     
@@ -107,9 +101,8 @@ GoalTile.prototype.interact = function(playerState){
 
 //----------- Anti gravity tile ---------/
 
-function AntiGravityTile(arg_x, arg_y){
-    Rect.call(this, arg_x, arg_y);   
-    this.color = "#00FF00";
+function AntiGravityTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);   
     this.counter = 0;
 }
 

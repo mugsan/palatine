@@ -37,10 +37,10 @@ GameState.prototype.run = function() {
 
 GameState.prototype.drawLevelStatus = function() {
     var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L' : ((this.currentLevel + 1) + "/" + gLEVELS.length);
-        gContext.font           = "20px arcade";
+        gContext.font           = "10px arcade";
         gContext.fillStyle      = "#888";
 
-        gContext.fillText(tPrint, 20,20);
+        gContext.fillText(tPrint, 10,10);
 
 };
 
