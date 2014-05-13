@@ -22,7 +22,6 @@ function Level(arg_levelData){
     
  
     gColor                      = arg_levelData.colorscheme;
-    console.log(arg_levelData.path);
 
     this.mStage                 = 0;        
     this.readBMP(arg_levelData.path);
@@ -70,7 +69,7 @@ Level.prototype.draw = function(){
 
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
-    if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > gCanvas.height || arg_Y < 0){
+    if(arg_X < 0 || arg_X  > gCanvas.width - 1  || arg_Y > gCanvas.height - 1 || arg_Y < 0){
         r = new Rect(0, 0, gColor.background);
         r.isSolid = false;
         return r;
