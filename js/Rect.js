@@ -29,6 +29,7 @@ Rect.prototype.interact = function(arg_player){
      if(arg_player.stateID == 4 && arg_player.underRect(this)){
             this.isSolid = false;
             this.color = gColor.background; 
+            gSound.breakTile.play();
     }
 
 }
@@ -78,6 +79,7 @@ ConveyorBeltTile.prototype.interact = function(player){
    
     this.counter++;
     if(this.counter == 10) this.counter = 0;
+    gSound.convey.play();
      
        
 }

@@ -42,6 +42,16 @@ Player.prototype.update = function(){
 Player.prototype.changeState = function(arg_state) {
     this.stateID = arg_state;
     this.currentState = this.diffrentStates[this.stateID];
+    switch (arg_state) {
+        case 1:             gSound.dead.play();
+                            break;
+        case 2:             gSound.win.play();
+                            break;
+        case 0:
+        case 5:             gSound.antiGrav.play();
+                            break;
+        default:            gSound.swapState.play();
+    }
 }
 
 
