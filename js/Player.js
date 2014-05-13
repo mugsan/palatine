@@ -68,12 +68,10 @@ Player.prototype.move = function(dX, dY){
     
     //check collision up/down
     if(this.collision(dX, dY)){ 
-        console.log("dy: "+dY);
         
         if(dY > 0 && this.stateID != 5) this.isAirborne = false;
         if((this.stateID == 5) && dY < 0){
             this.isAirborne = false;
-            console.log("mm");
         }
         
         dY = 0;

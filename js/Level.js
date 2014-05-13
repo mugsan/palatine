@@ -46,7 +46,8 @@ Level.prototype.update = function(){
     if (keyState[38] || keyState[87] || keyState[32]) {
         if (!this.mPlayer.isAirborne) {
             this.mPlayer.currentState.jumpVelocity = this.mPlayer.currentState.jumpForce;
-            //SOUND_EFFECTS[0].play();
+            gSOUND.jump.play();
+            
         }
     }
     this.mPlayer.update();

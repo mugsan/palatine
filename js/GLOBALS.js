@@ -16,18 +16,10 @@ var State = {
     PRELOAD:                    4
 };
 
+var gSOUND = { 
+    jump                        : new AudioQue('./wav/jump.wav',9)
 
-/*
- *Array of levels
- *LevelData(url, backgroundColor, foregroundColor, conveyerBelt, goalTile, width(40), height(30))
- */
-
-
-
-var gSOUND = [ 
-    new Audio('./wav/jump.wav')
-
-];
+};
 
 
 
@@ -36,6 +28,7 @@ var gStage = {
     width                       : 40, 
     height                      : 30
 };
+
 var gColorNormal = {
 
     background                  : "#333333",
@@ -44,7 +37,7 @@ var gColorNormal = {
     conveyerRight               : "#424242",
     goal                        : "#FFFFFF"
 
-}
+};
 
 var gLEVELS = [
     {
@@ -56,4 +49,5 @@ var gLEVELS = [
         colorscheme             : gColorNormal
     }
 ];
+
 
