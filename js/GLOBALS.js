@@ -1,11 +1,13 @@
 var gCanvas;
 var gContext;
 var gGameState;
+var gColor;
 var gTileWidth                  = 8;
 var gCounter                    = 0;
 var gLoopID                     = 0;
 var gLoading                    = false;
 var keyState                    = {};    
+
 
 var State = {
     GAMEOVER:                   1,
@@ -19,16 +21,39 @@ var State = {
  *Array of levels
  *LevelData(url, backgroundColor, foregroundColor, conveyerBelt, goalTile, width(40), height(30))
  */
-var gLEVELS = [
-    new LevelData('./stage/stage1.bmp','#333','#442222',"#424242","#FFFFFF", 40,30),
-    new LevelData('./stage/stage2.bmp','#333','#442222',"#424242","#FFFFFF", 40,30)
-];
 
 
 
-var SOUND_EFFECTS = [
+var gSOUND = [ 
     new Audio('./wav/jump.wav')
 
 ];
 
+
+
+
+var gStage = { 
+    width                       : 40, 
+    height                      : 30
+};
+var gColorNormal = {
+
+    background                  : "#333333",
+    wall                        : "#442222",
+    conveyerLeft                : "#424242",
+    conveyerRight               : "#424242",
+    goal                        : "#FFFFFF"
+
+}
+
+var gLEVELS = [
+    {
+        path                    : "./stage/stage1.bmp",
+        colorscheme             : gColorNormal
+    },
+    {
+        path                    : "./stage/stage2.bmp",
+        colorscheme             : gColorNormal
+    }
+];
 

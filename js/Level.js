@@ -18,16 +18,14 @@
  *  176             : 190
  *  173             : 189
  */
-function Level(arg_level_data){
+function Level(arg_levelData){
     
  
-    this.mStage                 = 0;        
-    this.colorBackground        = arg_level_data.colorBackground;
-    this.colorForeground        = arg_level_data.colorForeground;
-    this.width                  = arg_level_data.levelWidth;
-    this.height                 = arg_level_data.levelHeight;
+    gColor                      = arg_levelData.colorscheme;
+    console.log(arg_levelData.path);
 
-    this.readBMP(arg_level_data);
+    this.mStage                 = 0;        
+    this.readBMP(arg_levelData.path);
     
 };
 
@@ -58,7 +56,7 @@ Level.prototype.update = function(){
 
 Level.prototype.draw = function(){
     gContext.beginPath();
-    gContext.fillStyle = this.colorBackground;
+    gContext.fillStyle = gColor.background;
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
     gContext.closePath();
     for (var i = 0, len = this.mStage.length; i < len; i++) {
@@ -72,33 +70,24 @@ Level.prototype.draw = function(){
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
     if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > gCanvas.height || arg_Y < 0){
-        r = new Rect(0, 0, this.colorBackground);
+        r = new Rect(0, 0, this.gColor.background);
         r.isSolid = false;
         return r;
     }
-    return this.mStage[Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * this.width];   
+    return this.mStage[Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * gStage.width];   
 };
 
 
 
 //Reads BMP and populates tPixel with tiles.
 
-Level.prototype.readBMP             = function(arg_level_data) {
-    gLoading = true;
-
-    
-    var colorBackground             = arg_level_data.colorBackground,
-        colorForeground             = arg_level_data.colorForeground,
-        colorConveyerBelt           = arg_level_data.colorConveyerBelt,
-        colorGoal                   = arg_level_data.colorGoal,
-        width                       = arg_level_data.levelWidth,
-        height                      = arg_level_data.levelHeight,
-        path                        = arg_level_data.path;
+Level.prototype.readBMP             = function(arg_path) {
+        gLoading = true;
 
     var tStage                      = new Array(),
         tCanvas                     = document.createElement("canvas");
-        tCanvas.width               = this.width;
-        tCanvas.height              = this.height;
+        tCanvas.width               = gStage.width;
+        tCanvas.height              = gStage.height;
 
     var tContext                    = tCanvas.getContext("2d"),
         tImage                      = new Image();  
@@ -114,42 +103,42 @@ Level.prototype.readBMP             = function(arg_level_data) {
                 var tileData        = tImageData.data[(col + row * tCanvas.width) * 4];
                 switch (tileData) {
                     
-                    case 212:       var r       = new Rect(col * gTileWidth, row * gTileWidth, colorForeground);
+                    case 212:       var r       = new Rect(col * gTileWidth, row * gTileWidth, gColor.wall);
                                     r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
                         //conveyor belt moving to the left
                     case 113:     
-                                    var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, colorConveyerBelt, -1);
+                                    var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, gColor.conveyerLeft, -1);
                                     r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
                         
-                    case 74:        var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, colorConveyerBelt, 1);
+                    case 74:        var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, gColor.conveyerLeft, 1);
                                     r.isSolid   = true
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
                     //GoalTile
-                    case 25:        var r       = new GoalTile(col * gTileWidth, row * gTileWidth, colorGoal);
+                    case 25:        var r       = new GoalTile(col * gTileWidth, row * gTileWidth, gColor.goal);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
                       //Red tile
-                    case 189:       var r = new RedTile(col * 8, row * 8);
+                    case 189:       var r = new RedTile(col * gTileWidth, row * gTileWidth);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                      
                     //Hammer tile
-                    case 218:       var r = new HammerTile(col * 8, row * 8);
+                    case 218:       var r = new HammerTile(col * gTileWidth, row * gTileWidth);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       
                         //player spawn
                     case 192:       gGameState.mLevel.mPlayer                = new Player(col * gTileWidth, row * gTileWidth);
-                    default:        var r       = new Rect(col * gTileWidth, row * gTileWidth, colorBackground);
+                    default:        var r       = new Rect(col * gTileWidth, row * gTileWidth, gColor.background);
                                     r.isSolid   = false 
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
@@ -160,5 +149,5 @@ Level.prototype.readBMP             = function(arg_level_data) {
         gGameState.mLevel.mStage = tPixel;
 
     };
-    tImage.src                      = path;
+    tImage.src                      = arg_path;
 };

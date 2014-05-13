@@ -45,15 +45,4 @@ GameState.prototype.drawLevelStatus = function() {
 };
 
 
-function LevelData(arg_path, arg_color_background, arg_color_foreground, arg_color_conveyerbelt, arg_color_goal, arg_level_width, arg_level_height){
-    this.path                   = arg_path;
-    this.colorBackground        = arg_color_background;
-    this.colorForeground        = arg_color_foreground;
-    this.colorConveyerBelt      = arg_color_conveyerbelt;
-    this.colorGoal              = arg_color_goal;
-    this.levelWidth             = arg_level_width;
-    this.levelHeight            = arg_level_height;
-};
-
-
 
