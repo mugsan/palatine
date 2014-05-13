@@ -107,15 +107,28 @@ GoalTile.prototype.interact = function(playerState){
 
 //----------- Anti gravity tile ---------/
 
-function AntiGravityTile(arg_x, arg_y, arg_color){
-    Rect.call(this, arg_x, arg_y, arg_color);   
+function AntiGravityTile(arg_x, arg_y){
+    Rect.call(this, arg_x, arg_y);   
+    this.color = "#00FF00";
+    this.counter = 0;
 }
 
 AntiGravityTile.prototype = Object.create(Rect.prototype);
   
 AntiGravityTile.prototype.interact = function(player){
- if(gGameState.mLevel.mPlayer.stateID != 5) gGameState.mLevel.mPlayer.changeState(5);  
-    else gGameState.mLevel.mPlayer.changeState(0);
+    
+    //dead, don't move a muscle!!!
+    if(gGameState.mLevel.mPlayer.stateID == 1) return;
+    
+     if(gGameState.mLevel.mPlayer.stateID != 5) gGameState.mLevel.mPlayer.changeState(5);  
+        else {
+            this.counter++;
+            if(this.counter > 1){
+                gGameState.mLevel.mPlayer.changeState(0);
+                this.counter = 0;   
+            }
+        }
+    
 }
 //------- Helmet TILE ------------------/
 
