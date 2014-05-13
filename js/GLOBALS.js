@@ -22,7 +22,7 @@ var gSound = {
     breakTile                   : new AudioQue('./wav/break.wav',2),
     swapState                   : new AudioQue('./wav/swap.wav',1),
     win                         : new AudioQue('./wav/win.wav',1),
-    antiGrav                    : new AudioQue('./wav/antiGrav.wav',2),
+    antiGrav                    : new AudioQue('./wav/antiGrav2.wav',2),
     convey                      : new AudioQue('./wav/convey.wav',2)
 
 };
