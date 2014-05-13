@@ -68,12 +68,17 @@ function ConveyorBeltTile(arg_x, arg_y, arg_color, arg_dir){
 ConveyorBeltTile.prototype = Object.create(Rect.prototype);
 
 ConveyorBeltTile.prototype.interact = function(player){
-  
-    if(this.counter % 2 == 0)   player.currentState.VERTICAL_GRAVITY = this.dir;
-    else player.currentState.VERTICAL_GRAVITY = 0;
+    
+    if(player.currentState.VERTICAL_GRAVITY <= -1) {player.currentState.VERTICAL_GRAVITY = 0;  }
+    if(player.currentState.VERTICAL_GRAVITY >= 1 ) {player.currentState.VERTICAL_GRAVITY = 0;  }
+    
+    if(this.counter % 3 > 0)  
+        player.currentState.VERTICAL_GRAVITY += this.dir;
+        
    
-    if(this.counter == 1000) this.counter = 0;
-    this.counter++; 
+    this.counter++;
+    if(this.counter == 10) this.counter = 0;
+     
        
 }
 
@@ -96,10 +101,22 @@ GoalTile.prototype.interact = function(playerState){
 
     gGameState.mLevel.mPlayer.changeState(2);  
 }
+
+
+//----------- Anti gravity tile ---------/
+
+function AntiGravityTile(arg_x, arg_y){
+    Rect.call(this, arg_x, arg_y);   
+    this.color = "#00FF00";
+}
+
+AntiGravityTile.prototype = Object.create(Rect.prototype);
   
-
-
-//------- HAMMER TILE ------------------/
+AntiGravityTile.prototype.interact = function(player){
+ if(gGameState.mLevel.mPlayer.stateID != 5) gGameState.mLevel.mPlayer.changeState(5);  
+    else gGameState.mLevel.mPlayer.changeState(0);
+}
+//------- Helmet TILE ------------------/
 
 function HammerTile(arg_x, arg_y){
     Rect.call(this, arg_x, arg_y);

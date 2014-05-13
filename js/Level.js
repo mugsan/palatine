@@ -7,7 +7,7 @@
  *  179             : 192           : Player
  *  40              : 25            : Goal
  *  100             : 121
- *  221             : 230
+ *  221             : 230           : Antigravity
  *  156             : 174
  *  64              : 82 
  *  209             : 218           : HammerTile
@@ -45,8 +45,8 @@ Level.prototype.update = function(){
     }
     if (keyState[38] || keyState[87] || keyState[32]) {
         if (!this.mPlayer.isAirborne) {
-            this.mPlayer.currentState.jumpVelocity = -5.2;
-            SOUND_EFFECTS[0].play();
+            this.mPlayer.currentState.jumpVelocity = this.mPlayer.currentState.jumpForce;
+            //SOUND_EFFECTS[0].play();
         }
     }
     this.mPlayer.update();
@@ -70,7 +70,7 @@ Level.prototype.draw = function(){
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
     if(arg_X < 0 || arg_X  > gCanvas.width || arg_Y > gCanvas.height || arg_Y < 0){
-        r = new Rect(0, 0, this.gColor.background);
+        r = new Rect(0, 0, gColor.background);
         r.isSolid = false;
         return r;
     }
@@ -133,6 +133,11 @@ Level.prototype.readBMP             = function(arg_path) {
                      
                     //Hammer tile
                     case 218:       var r = new HammerTile(col * gTileWidth, row * gTileWidth);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                    //Antigravity
+                    case 230:       var r = new AntiGravityTile(col * 8, row * 8);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

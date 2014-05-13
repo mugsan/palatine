@@ -10,7 +10,8 @@ function Player(arg_X, arg_Y){
                                 new State_dead(),
                                 new State_win(),
                                 new State_red(),
-                                new State_helm() ];      //create a state list
+                                new State_helm(),
+                                new State_antiGravity()];      //create a state list
 
     this.currentState       =   this.diffrentStates[0];   //set basic state
     this.stateID            =   0;
@@ -47,9 +48,10 @@ Player.prototype.changeState = function(arg_state) {
 
 Player.prototype.move = function(dX, dY){
      
+
     if(this.isAirborne){
         this.currentState.jumpVelocity += this.currentState.GRAVITY;
-        if(this.currentState.jumpVelocity > 4) this.currentState.jumpVelocity = 4;
+        //if(this.currentState.jumpVelocity > 4) this.currentState.jumpVelocity = 4;
         dY = this.currentState.jumpVelocity;
     }
     
@@ -66,7 +68,13 @@ Player.prototype.move = function(dX, dY){
     
     //check collision up/down
     if(this.collision(dX, dY)){ 
-        if(dY > 0) this.isAirborne = false;
+        console.log("dy: "+dY);
+        
+        if(dY > 0 && this.stateID != 5) this.isAirborne = false;
+        if((this.stateID == 5) && dY < 0){
+            this.isAirborne = false;
+            console.log("mm");
+        }
         
         dY = 0;
         this.currentState.jumpVelocity = 0;
@@ -117,6 +125,7 @@ function State_basic(){
     this.VERTICAL_GRAVITY   = 0;
     this.colorBody          = '#777';
     this.colorHead          = '#999';
+    this.jumpForce          = -5.2;
 }
 
 function State_win(){
@@ -129,6 +138,7 @@ function State_dead(){
     this.jumpVelocity       = 0;
     this.GRAVITY            = .2;
     this.VERTICAL_GRAVITY   = 0;
+    this.jumpForce          = 0;
 }
 
 function State_red(){
@@ -139,6 +149,7 @@ function State_red(){
     this.VERTICAL_GRAVITY   = 0;
     this.colorBody          = '#AA0000';
     this.colorHead          = '#999';
+    this.jumpForce = -6;
 }
 
 function State_helm(){
@@ -149,5 +160,17 @@ function State_helm(){
     this.VERTICAL_GRAVITY   = 0;
     this.colorBody          = '#777';
     this.colorHead          = '#000';
+    this.jumpForce          = -4.8;
+}
+
+function State_antiGravity(){
+    
+    this.speed              = 1;
+    this.jumpVelocity       = 0;
+    this.GRAVITY            = -0.2;
+    this.VERTICAL_GRAVITY   = 0;
+    this.jumpForce          = 5.2;
+    this.colorBody          = '#999';
+    this.colorHead          = '#777';
 }
 

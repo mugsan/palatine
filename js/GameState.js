@@ -23,12 +23,13 @@ GameState.prototype.run = function() {
                                                     this.currentState       = State.PRELOAD;
                                                     break;
                                 }
-                                gCounter += 1;
-                                if (gCounter == 3) {
+                                
+                                if (gCounter % 4 == 0) {
                                     this.mLevel.draw();
                                     this.drawLevelStatus();
-                                    gCounter = 0;
                                 }
+            
+                                if(gCounter++ == 1000) gCounter = 0;
                                 break;
 
         default:                this.mLevel.update();

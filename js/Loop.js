@@ -22,5 +22,6 @@ function main(){
 
 function loop() {
     gGameState.run();
+    
 }
 
