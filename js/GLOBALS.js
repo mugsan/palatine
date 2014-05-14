@@ -76,7 +76,7 @@ var gColorHell = {
     helm                        : "#613636",
     anti                        : "#787878",
     dead                        : "#FF0000",
-    glue                        : "#80824F"
+    glue                        : "#80824F",
     trap                        : "#CCCCCC"
 };
 
@@ -102,7 +102,8 @@ var gLEVELS = [
     },
     {
         path                    : "./stage/stage99.bmp",
-        colorscheme             : gColorNormal
+        colorscheme             : gColorNormal,
+        noJump                  : true
     }
 ];
 
