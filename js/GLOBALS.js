@@ -51,16 +51,16 @@ var gColorNormal = {
 var gColorErotic = {
 
     background                  : "#AD3D95",
-    conveyerLeft                : "#424242",
-    conveyerRight               : "#424242",
-    bridge                      : "#89F354",
+    conveyerLeft                : "#6B2E5D",
+    conveyerRight               : "#6B2E5D",
+    bridge                      : "#EB1EBB",
     wall                        : "#D49BC7",
     goal                        : "#F2D3EB",
     jump                        : "#D585F2",
     helm                        : "#711094",
-    anti                        : "#5987BA",
+    anti                        : "#FFADFA",
     dead                        : "#6A4E87",
-    glue                        : "#1188AA",
+    glue                        : "#D660CE",
     trap                        : "#CCCCCC"
 };
 
@@ -83,6 +83,10 @@ var gColorHell = {
 
 
 var gLEVELS = [
+    //{
+        //path                    : "./stage/testing.bmp",
+        //colorscheme             : gColorErotic
+    //},
     {
         path                    : "./stage/stage0.bmp",
         colorscheme             : gColorErotic
@@ -99,6 +103,18 @@ var gLEVELS = [
         path                    : "./stage/stage3.bmp",
         colorscheme             : gColorNormal,
         noJump                  : true
+    },
+    {
+        path                    : "./stage/stage4.bmp",
+        colorscheme             : gColorNormal
+    },
+    {
+        path                    : "./stage/stage5.bmp",
+        colorscheme             : gColorNormal
+    },
+    {
+        path                    : "./stage/stage6.bmp",
+        colorscheme             : gColorNormal
     },
     {
         path                    : "./stage/stage99.bmp",
