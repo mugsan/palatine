@@ -112,15 +112,15 @@ AntiGravityTile.prototype.interact = function(player){
     
     //dead, don't move a muscle!!!
     if(gGameState.mLevel.mPlayer.stateID == 1) return;
-    
-     if(gGameState.mLevel.mPlayer.stateID != 5) gGameState.mLevel.mPlayer.changeState(5);  
-        else {
-            this.counter++;
-            if(this.counter > 1){
-                gGameState.mLevel.mPlayer.changeState(0);
-                this.counter = 0;   
-            }
+         
+    if(gGameState.mLevel.mPlayer.stateID != 5) gGameState.mLevel.mPlayer.changeState(5);  
+    else {
+        this.counter++;
+        if(this.counter > 1){
+            gGameState.mLevel.mPlayer.changeState(0);
+            this.counter = 0;   
         }
+    }
     
 }
 //------- Helmet TILE ------------------/

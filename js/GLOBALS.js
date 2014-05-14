@@ -40,12 +40,16 @@ var gColorNormal = {
     wall                        : "#442222",
     goal                        : "#FFFFFF",
     jump                        : "#FF8000",
-    helm                        : "#00FF00",
-    anti                        : "#000000",
+    helm                        : "#339955",
+    anti                        : "#FFFFFF",
     dead                        : "#FF0000"
 };
 
 var gLEVELS = [
+    {
+        path                    : "./stage/stage0.bmp",
+        colorscheme             : gColorNormal
+    },
     {
         path                    : "./stage/stage1.bmp",
         colorscheme             : gColorNormal
@@ -56,7 +60,8 @@ var gLEVELS = [
     },
     {
         path                    : "./stage/stage3.bmp",
-        colorscheme             : gColorNormal
+        colorscheme             : gColorNormal,
+        noJump                  : true
     },
     {
         path                    : "./stage/stage99.bmp",

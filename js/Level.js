@@ -24,6 +24,7 @@ function Level(arg_levelData){
     gColor                      = arg_levelData.colorscheme;
 
     this.mStage                 = 0;        
+    this.noJump                 = arg_levelData.noJump;
     this.readBMP(arg_levelData.path);
     
 };
@@ -43,7 +44,7 @@ Level.prototype.update = function(){
 
     }
     if (keyState[38] || keyState[87] || keyState[32]) {
-        if (!this.mPlayer.isAirborne) {
+        if (!this.mPlayer.isAirborne && !this.noJump) {
             this.mPlayer.currentState.jumpVelocity = this.mPlayer.currentState.jumpForce;
             gSound.jump.play();
             

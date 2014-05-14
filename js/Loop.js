@@ -1,9 +1,9 @@
 // -- main -- //
 function main(){
-    window.addEventListener('keydown',function(e){
+    document.addEventListener('keydown',function(e){
         keyState[e.keyCode || e.which] = true;
     },true);    
-    window.addEventListener('keyup',function(e){
+    document.addEventListener('keyup',function(e){
         keyState[e.keyCode || e.which] = false;
     },true);
     
