@@ -31,6 +31,9 @@ Rect.prototype.interact = function(arg_player){
             this.color = gColor.background; 
             gSound.breakTile.play();
     }
+    
+    if(arg_player.stateID == 6) arg_player.currentState.jumpVelocity = 0;
+ 
 
 }
 
@@ -135,6 +138,18 @@ HammerTile.prototype.interact = function(player){
     gGameState.mLevel.mPlayer.changeState(4);
 }
 
+//------- Glue TILE ------------------/
+
+function GlueTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
+}
+
+GlueTile.prototype = Object.create(Rect.prototype);
+
+GlueTile.prototype.interact = function(player){
+    gGameState.mLevel.mPlayer.changeState(6);
+}
+
 //------- Death TILE------------------/
 
 function DeathTile(arg_x, arg_y, arg_color){
@@ -146,6 +161,61 @@ DeathTile.prototype = Object.create(Rect.prototype);
 DeathTile.prototype.interact = function(player){
     gGameState.mLevel.mPlayer.changeState(1);
 }
+
+
+//-------Trap Tile ------------------/
+function TrapTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
+    
+    this.counter = 0;
+}
+
+
+
+TrapTile.prototype = Object.create(Rect.prototype);
+
+TrapTile.prototype.interact = function(player){
+    
+   if(this.counter >= 6){
+    
+       this.isSolid = false;
+       this.color = gColor.background;
+       this.counter = 6;
+   }
+    
+    this.counter++;
+}
+
+
+//--------------- Bridge Tile -------------/
+function BridgeTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
+    
+    this.counter = 50 + arg_x * 2;
+   
+}
+
+
+BridgeTile.prototype = Object.create(Rect.prototype);
+
+BridgeTile.prototype.interact = function(player){
+    
+
+}
+
+BridgeTile.prototype.draw = function() {
+    gContext.fillStyle = this.color;
+    gContext.fillRect(this.left, this.top, this.width, this.width);
+
+    if(this.counter <= 0){
+        this.isSolid = false;
+        this.color = gColor.background;
+        this.counter = 0;
+        
+    }
+   this.counter -= 4;
+ 
+};
     
 
 

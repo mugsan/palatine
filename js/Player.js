@@ -11,7 +11,8 @@ function Player(arg_X, arg_Y){
                                 new State_win(),
                                 new State_red(),
                                 new State_helm(),
-                                new State_antiGravity()];      //create a state list
+                                new State_antiGravity(),
+                                new State_sticky()];      //create a state list
 
     this.currentState       =   this.diffrentStates[0];   //set basic state
     this.stateID            =   0;
@@ -59,11 +60,11 @@ Player.prototype.changeState = function(arg_state) {
 Player.prototype.move = function(dX, dY){
      
 
-    if(this.isAirborne){
+    //if(this.isAirborne){
         this.currentState.jumpVelocity += this.currentState.GRAVITY;
         //if(this.currentState.jumpVelocity > 4) this.currentState.jumpVelocity = 4;
         dY = this.currentState.jumpVelocity;
-    }
+//    }
     
     if(this.hasMoved){
         if (this.mDir == 1) {
@@ -74,18 +75,28 @@ Player.prototype.move = function(dX, dY){
     }
     
     //check collision right/left
-    if(this.collision(dX, 0)) dX = 0;
+    if(this.collision(dX, 0)){
+        dX = 0;
+        if(this.stateID == 6){ 
+            this.isAirborne = false;
+            
+            return;
+        }
+    }
+   
     
     //check collision up/down
     if(this.collision(dX, dY)){ 
         
-        if(dY > 0 && this.stateID != 5) this.isAirborne = false;
+        if(dY > 0 && (this.stateID != 5)) this.isAirborne = false;
         if((this.stateID == 5) && dY < 0){
             this.isAirborne = false;
         }
         
         dY = 0;
         this.currentState.jumpVelocity = 0;
+        
+       
         
     }else{
         this.isAirborne = true;
@@ -96,6 +107,10 @@ Player.prototype.move = function(dX, dY){
     
     this.mDir       = 0;
     this.hasMoved   = false;
+    
+    
+    
+    
     
     
 };
@@ -180,5 +195,18 @@ function State_antiGravity(){
     this.jumpForce          = 5.2;
     this.colorBody          = '#999';
     this.colorHead          = '#777';
+}
+
+function State_sticky(){
+    
+    this.speed = 1;
+    this.jumpVelocity = 0;
+    this.GRAVITY = .17;
+    this.jumpForce = -5.4;
+    this.VERTICAL_GRAVITY   = 0;
+    this.colorBody          = '#777';
+    this.colorHead          = '#999';
+    
+    
 }
 

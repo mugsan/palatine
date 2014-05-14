@@ -6,17 +6,17 @@
  *  60              : 74            : ConveyerRight
  *  179             : 192           : Player
  *  40              : 25            : Goal
- *  100             : 121
+ *  100             : 121           : Bridge
  *  221             : 230           : Antigravity
  *  156             : 174
  *  64              : 82            : Death by chocolate
  *  209             : 218           : HammerTile
  *  173             : 187
- *  88              : 107
+ *  88              : 107           : TrapTile
  *  174             : 189           : RedTile
  *  206             : 218          
- *  176             : 190
- *  173             : 189
+ *  176             : 190           : GlueTile
+ *  173             : 189          
  */
 function Level(arg_levelData){
     
@@ -140,6 +140,19 @@ Level.prototype.readBMP             = function(arg_path) {
                                     break;
                         
                     case 82:       var r = new DeathTile(col * gTileWidth, row * gTileWidth, gColor.dead);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                    //Traptile     
+                    case 107:       var r = new TrapTile(col * gTileWidth, row * gTileWidth, gColor.trap);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                    //BridgeTile    
+                    case 121:       var r = new BridgeTile(col * gTileWidth, row * gTileWidth, gColor.bridge);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                    //Gluetile   
+                    case 190:       var r = new GlueTile(col * gTileWidth, row * gTileWidth, gColor.glue);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       
