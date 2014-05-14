@@ -176,11 +176,11 @@ TrapTile.prototype = Object.create(Rect.prototype);
 
 TrapTile.prototype.interact = function(player){
     
-   if(this.counter >= 6){
+   if(this.counter >= 2){
     
        this.isSolid = false;
        this.color = gColor.background;
-       this.counter = 6;
+       this.counter = 2;
    }
     
     this.counter++;
