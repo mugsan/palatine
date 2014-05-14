@@ -3,6 +3,8 @@ function GameState(){
  
     this.currentLevel           = 0;
     this.currentState           = State.PRELOAD;
+    this.stageParagraph         = document.getElementById("current_stage");
+    console.log(this.stageParagraph.innerHTML);
 };
 
 GameState.prototype.run = function() {
@@ -36,12 +38,10 @@ GameState.prototype.run = function() {
 };
 
 GameState.prototype.drawLevelStatus = function() {
-    var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L  L E V E L' : ("L E V E L " + (this.currentLevel + 1) + " of " + gLEVELS.length);
-        gContext.font           = "15px arcade";
-        gContext.fillStyle      = "#888";
-
-        gContext.fillText(tPrint, 10,10);
-
+    var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L  L E V E L' : ("L E V E L  " + (this.currentLevel + 1) + " of " + gLEVELS.length);
+    console.log(tPrint.toString());
+    console.log(this.stageParagraph.innerHTML);
+    if (tPrint != this.stageParagraph.innerHTML) this.stageParagraph.innerHTML = tPrint;
 };
 
 

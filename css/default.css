@@ -21,12 +21,11 @@ body section {
     width:                      810px;
     height:                     610px;
     margin:                     auto;
-    padding:                    60px 60px 60px 60px;
+    padding:                    0 50px 80px 50px;
     border-radius:              1%;
 }
 body section p {
     display:                    inline;
-    padding:                    0 10px 0 10px;
     font-size:                  40px;
 }
 body section canvas {

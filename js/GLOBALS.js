@@ -37,22 +37,59 @@ var gColorNormal = {
     background                  : "#555555",
     conveyerLeft                : "#424242",
     conveyerRight               : "#424242",
+    bridge                      : "#89F354",
     wall                        : "#442222",
     goal                        : "#FFFFFF",
     jump                        : "#FF8000",
     helm                        : "#339955",
     anti                        : "#FFFFFF",
-    dead                        : "#FF0000"
+    dead                        : "#FF0000",
+    glue                        : "#1188AA",
+    trap                        : "#CCCCCC"
 };
+
+var gColorErotic = {
+
+    background                  : "#AD3D95",
+    conveyerLeft                : "#424242",
+    conveyerRight               : "#424242",
+    bridge                      : "#89F354",
+    wall                        : "#D49BC7",
+    goal                        : "#F2D3EB",
+    jump                        : "#D585F2",
+    helm                        : "#711094",
+    anti                        : "#5987BA",
+    dead                        : "#6A4E87",
+    glue                        : "#1188AA",
+    trap                        : "#CCCCCC"
+};
+
+var gColorHell = {
+
+    background                  : "#7A3131",
+    conveyerLeft                : "#8C7474",
+    conveyerRight               : "#8C7474",
+    bridge                      : "#89F354",
+    wall                        : "#6E2121",
+    goal                        : "#FF9E9E",
+    jump                        : "#9E5252",
+    helm                        : "#613636",
+    anti                        : "#787878",
+    dead                        : "#FF0000",
+    glue                        : "#80824F",
+    trap                        : "#CCCCCC"
+};
+
+
 
 var gLEVELS = [
     {
         path                    : "./stage/stage0.bmp",
-        colorscheme             : gColorNormal
+        colorscheme             : gColorErotic
     },
     {
         path                    : "./stage/stage1.bmp",
-        colorscheme             : gColorNormal
+        colorscheme             : gColorHell
     },
     {
         path                    : "./stage/stage2.bmp",
@@ -65,7 +102,8 @@ var gLEVELS = [
     },
     {
         path                    : "./stage/stage99.bmp",
-        colorscheme             : gColorNormal
+        colorscheme             : gColorNormal,
+        noJump                  : true
     }
 ];
 
