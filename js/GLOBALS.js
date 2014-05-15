@@ -1,4 +1,6 @@
 var gCanvas;
+var gCanvasWidth;
+var gCanvasHeight;
 var gContext;
 var gGameState;
 var gColor;

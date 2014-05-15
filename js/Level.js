@@ -56,10 +56,10 @@ Level.prototype.update = function(){
 
 
 Level.prototype.draw = function(){
-    gContext.beginPath();
+    //gContext.beginPath();
     gContext.fillStyle = gColor.background;
-    gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
-    gContext.closePath();
+    gContext.fillRect(0, 0, gCanvasWidth, gCanvasHeight);
+    //gContext.closePath();
     for (var i = 0, len = this.mStage.length; i < len; i++) {
         if(this.mStage[i].isSolid) this.mStage[i].draw(gContext);
     }
@@ -70,12 +70,12 @@ Level.prototype.draw = function(){
 
 // - Get tile from current stage at arg_X, arg_Y
 Level.prototype.getTile = function(arg_X, arg_Y){
-    if(arg_X < 0 || arg_X  > gCanvas.width - 1  || arg_Y > gCanvas.height - 1 || arg_Y < 0){
+    if(arg_X < 0 || arg_X  > gCanvasWidth - 1  || arg_Y > gCanvasHeight - 1 || arg_Y < 0){
         r = new Rect(0, 0, gColor.background);
         r.isSolid = false;
         return r;
     }
-    return this.mStage[Math.floor(arg_X / gTileWidth) + Math.floor(arg_Y / gTileWidth) * gStage.width];   
+    return this.mStage[((arg_X / gTileWidth) >> 0) + ((arg_Y / gTileWidth) >> 0) * gStage.width];   
 };
 
 

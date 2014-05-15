@@ -13,6 +13,12 @@ function main(){
     gCanvas.width       = 320;
     gCanvas.height      = 240;
     
+    gCanvas.style.width = document.innerWidth + "px";
+    gCanvas.style.height = document.innerHeight + "px";
+    
+    gCanvasWidth = 320;
+    gCanvasHeight = 240;
+    
     gContext.fillStyle = "#FF00FF";
     gContext.fillRect(0, 0, gCanvas.width, gCanvas.height);
     

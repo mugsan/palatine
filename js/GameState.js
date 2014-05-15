@@ -13,6 +13,7 @@ GameState.prototype.run = function() {
         case State.PRELOAD:     this.currentState = State.LOADING;
                                 gLoading = true;
                                 this.mLevel = new Level(gLEVELS[this.currentLevel]);
+                                this.drawLevelStatus();
                                 break;
 
         case State.LOADING:     if(!gLoading) this.currentState = State.RUNNING;
@@ -27,7 +28,6 @@ GameState.prototype.run = function() {
                                 
                                 if (gCounter % 4 == 0) {
                                     this.mLevel.draw();
-                                    this.drawLevelStatus();
                                 }
             
                                 if(gCounter++ == 1000) gCounter = 0;
@@ -39,8 +39,7 @@ GameState.prototype.run = function() {
 
 GameState.prototype.drawLevelStatus = function() {
     var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L  L E V E L' : ("L E V E L  " + (this.currentLevel + 1) + " of " + gLEVELS.length);
-    console.log(tPrint.toString());
-    console.log(this.stageParagraph.innerHTML);
+  
     if (tPrint != this.stageParagraph.innerHTML) this.stageParagraph.innerHTML = tPrint;
 };
 

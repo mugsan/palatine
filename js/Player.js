@@ -121,18 +121,18 @@ Player.prototype.underRect = function(rect){
 
 Player.prototype.collision = function(arg_dX, arg_dY){
     
-    arg_dX = parseInt(arg_dX);
-    arg_dY = parseInt(arg_dY);
+    arg_dX = arg_dX >> 0;
+    arg_dY = arg_dY >> 0;
     var collided = false;
     
     for(var i = 0; i < 4; i++){
-       if(  gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).isSolid){
-            gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + Math.floor(i/2)*7 + arg_dY).interact(this);
+       if(  gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + ((i/2) >> 0)*7 + arg_dY).isSolid){
+            gGameState.mLevel.getTile(this.mHead.left + (i%2)*7 + arg_dX, this.mHead.top + ((i/2) >> 0)*7 + arg_dY).interact(this);
             collided = true;
             
         }
-       if(  gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).isSolid){
-            gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + Math.floor(i/2)*7 + arg_dY).interact(this);
+       if(  gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + ((i/2) >> 0)*7 + arg_dY).isSolid){
+            gGameState.mLevel.getTile(this.mBody.left + (i%2)*7 + arg_dX, this.mBody.top + ((i/2) >> 0)*7 + arg_dY).interact(this);
             collided = true;
           
         }

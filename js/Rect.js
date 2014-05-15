@@ -15,10 +15,10 @@ Rect.prototype.draw = function() {
 };
 
 Rect.prototype.move = function(dX, dY) {
-    this.left   += parseInt(dX);
-    this.right  += parseInt(dX);
-    this.top    += parseInt(dY);
-    this.bottom += parseInt(dY);
+    this.left   += (dX >> 0);
+    this.right  += (dX >> 0);
+    this.top    += (dY >> 0);
+    this.bottom += (dY >> 0);
 
 };
 
