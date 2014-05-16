@@ -4,7 +4,6 @@ function GameState(){
     this.currentLevel           = 0;
     this.currentState           = State.PRELOAD;
     this.stageParagraph         = document.getElementById("current_stage");
-    console.log(this.stageParagraph.innerHTML);
 };
 
 GameState.prototype.run = function() {
@@ -38,7 +37,7 @@ GameState.prototype.run = function() {
 };
 
 GameState.prototype.drawLevelStatus = function() {
-    var tPrint                  = ((this.currentLevel + 1) == gLEVELS.length)? 'F I N A L  L E V E L' : ("L E V E L  " + (this.currentLevel + 1) + " of " + gLEVELS.length);
+    var tPrint                  = gLEVELS[this.currentLevel].quote; 
   
     if (tPrint != this.stageParagraph.innerHTML) this.stageParagraph.innerHTML = tPrint;
 };

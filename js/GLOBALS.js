@@ -36,14 +36,14 @@ var gStage = {
 
 var gColorNormal = {
 
-    background                  : "#555555",
+    background                  : "#222222",
     conveyerLeft                : "#444444",
     conveyerRight               : "#444444",
     bridge                      : "#333333",
     trap                        : "#333333",
-    wall                        : "#222222",
+    wall                        : "#555555",
     goal                        : "#FFFFFF",
-    dead                        : "#000000",
+    dead                        : "#00CC00",
     tele                        : "#CCCCCC",
 
     glue                        : "#111177",
@@ -92,7 +92,7 @@ var gColorHell = {
 
 var gLEVELS = [
     {
-        path                    : "./stage/stage0.bmp",
+        path                    : "./stage/testing.bmp",
         colorscheme             : gColorNormal 
     },
     {
