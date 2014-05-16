@@ -8,7 +8,7 @@
  *  40              : 25            : Goal
  *  100             : 121           : Bridge
  *  221             : 230           : Antigravity
- *  156             : 174
+ *  156             : 174           : TeleTile
  *  64              : 82            : Death by chocolate
  *  209             : 218           : HammerTile
  *  173             : 187
@@ -108,7 +108,7 @@ Level.prototype.readBMP             = function(arg_path) {
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     
-                        //conveyor belt moving to the left
+                    //conveyor belt moving to the left
                     case 113:     
                                     var r       = new ConveyorBeltTile(col * gTileWidth, row * gTileWidth, gColor.conveyerLeft, -1);
                                     tPixel[col + row * tCanvas.width] = r;
@@ -124,7 +124,7 @@ Level.prototype.readBMP             = function(arg_path) {
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
-                      //Red tile
+                    //Red tile
                     case 189:       var r = new RedTile(col * gTileWidth, row * gTileWidth, gColor.jump);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
@@ -153,6 +153,10 @@ Level.prototype.readBMP             = function(arg_path) {
                         
                     //Gluetile   
                     case 190:       var r = new GlueTile(col * gTileWidth, row * gTileWidth, gColor.glue);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                    //TeleTile
+                    case 174:       var r = new TeleTile(col * gTileWidth, row * gTileWidth, gColor.glue);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

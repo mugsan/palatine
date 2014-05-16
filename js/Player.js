@@ -115,6 +115,18 @@ Player.prototype.move = function(dX, dY){
     
 };
 
+Player.prototype.leftRect = function(rect){
+    return rect.left >= this.mHead.right && (rect.bottom >= this.mHead.top && rect.top <= this.mBody.bottom);
+}
+
+Player.prototype.rightRect = function(rect){
+    return rect.right <= this.mHead.left && (rect.bottom >= this.mHead.top && rect.top <= this.mBody.bottom);
+}
+
+Player.prototype.overRect = function(rect){
+    return rect.top >= this.mBody.bottom && (rect.left < this.mBody.right && rect.right > this.mHead.left); 
+}
+
 Player.prototype.underRect = function(rect){  
     return rect.top <= this.mHead.top && (rect.left < this.mHead.right && rect.right > this.mHead.left);   
 }

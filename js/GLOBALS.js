@@ -90,7 +90,7 @@ var gLEVELS = [
         //colorscheme             : gColorErotic
     //},
     {
-        path                    : "./stage/stage0.bmp",
+        path                    : "./stage/stockholm.bmp",
         colorscheme             : gColorErotic
     },
     {

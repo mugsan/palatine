@@ -216,7 +216,22 @@ BridgeTile.prototype.draw = function() {
    this.counter -= 4;
  
 };
-    
+
+
+function TeleTile(arg_x, arg_y, arg_color){
+    Rect.call(this, arg_x, arg_y, arg_color);
+}
+
+TeleTile.prototype = Object.create(Rect.prototype);
+ 
+
+TeleTile.prototype.interact = function(player){
+
+    if (player.overRect(this))  console.log("over"); 
+    if (player.underRect(this)) console.log("under");
+    if (player.leftRect(this))  console.log("left");
+    if (player.rightRect(this)) console.log("right");
+}
 
 
 
