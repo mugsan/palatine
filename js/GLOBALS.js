@@ -92,7 +92,7 @@ var gColorArray = [gColorNormal, gColorErotic, gColorHell];
 
 var gLEVELS = [
     {
-        path                    : "./stage/testing.bmp"
+        path                    : "./stage/stage0.bmp"
     },
     {
         path                    : "./stage/stage1.bmp"
@@ -112,6 +112,9 @@ var gLEVELS = [
     },
     {
         path                    : "./stage/stage6.bmp"
+    },
+    {
+        path                    : "./stage/stage7.bmp"
     },
     {
         path                    : "./stage/stage99.bmp",
