@@ -92,52 +92,68 @@ var gColorArray = [gColorNormal, gColorErotic, gColorHell];
 
 var gLEVELS = [
     {
-        path                    : "./stage/intro0.bmp"
+        path                    : "./stage/intro0.bmp",
+        quote                   : "The end is in the beginning and lies far ahead."
+        
     },
     {
-        path                    : "./stage/intro1.bmp"
+        path                    : "./stage/intro1.bmp",
+        quote                   : "Gravity is a habit that is hard to shake off."
     },
     {
-        path                    : "./stage/intro2.bmp"
+        path                    : "./stage/intro2.bmp",
+        quote                   : "Question everything. Learn something. Answer nothing."
     },
     {
-        path                    : "./stage/intro3.bmp"
+        path                    : "./stage/intro3.bmp",
+        quote                   : "Born on the ground. Live in the air!"
     },
     {
-        path                    : "./stage/intro4.bmp"
+        path                    : "./stage/intro4.bmp",
+        quote                   : "Those who don't jump will never fly."
     },
     {
-        path                    : "./stage/stage1.bmp"
+        path                    : "./stage/stage1.bmp",
+        quote                   : "What is important is to spread confusion, not eliminate it."
     },
     {
-        path                    : "./stage/stage2.bmp"
+        path                    : "./stage/stage2.bmp",
+        quote                   : "If everything seems under control, you're not going fast enough."
     },
     {
         path                    : "./stage/stage3.bmp",
-        noJump                  : true
+        noJump                  : true,
+        quote                   : "If you don't succeed at first, hide all evidence that you tried."
     },
     {
-        path                    : "./stage/stage4.bmp"
+        path                    : "./stage/stage4.bmp",
+        quote                   : "The road to success is always under construction."
     },
     {
-        path                    : "./stage/stage5.bmp"
+        path                    : "./stage/stage5.bmp",
+        quote                   : "To the well-organized mind, death is but the next great adventure."
     },
     {
-        path                    : "./stage/stage6.bmp"
+        path                    : "./stage/stage6.bmp",
+        quote                   : "You suck."
     },
     {
         path                    : "./stage/stage7.bmp",
-        noJump                  : true
+        noJump                  : true,
+        quote                   : "It's a long road but it's worth it."
     },
     {
-        path                    : "./stage/stage11.bmp"
+        path                    : "./stage/stage11.bmp",
+        quote                   : "Irish I were drunk."
     },
     {
+        quote                   : "When in danger or in doubt, run in circles, scream and shout.",
         path                    : "./stage/stage12.bmp"
     },
     {
         path                    : "./stage/stage99.bmp",
-        noJump                  : true
+        noJump                  : true,
+        quote                   : "Stop smell roses."
     }
     
 ];
