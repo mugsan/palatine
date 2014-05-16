@@ -19,6 +19,11 @@ function Player(arg_X, arg_Y){
     this.mDir               =   0;
     this.hasMoved           =   false;
     this.isAirborne         =   true;
+};
+
+Player.prototype.setPos = function(arg_x, arg_y){
+    this.mBody              =   new Rect(arg_x, arg_y + 8,  this.currentState.colorBody);
+    this.mHead              =   new Rect(arg_x, arg_y,      this.currentState.colorHead);
 }
 
 Player.prototype.draw = function(){

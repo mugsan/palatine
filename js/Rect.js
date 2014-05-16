@@ -226,11 +226,24 @@ TeleTile.prototype = Object.create(Rect.prototype);
  
 
 TeleTile.prototype.interact = function(player){
+    var dX = 0,
+        dY = 0,
+        stagePosX = (this.left / 8) >> 0,
+        stagePosY = (this.top  / 8) >> 0;
 
-    if (player.overRect(this))  console.log("over"); 
-    if (player.underRect(this)) console.log("under");
-    if (player.leftRect(this))  console.log("left");
-    if (player.rightRect(this)) console.log("right");
+        if (player.overRect(this))  dY += 1; 
+        if (player.underRect(this)) dY -= 1;
+        if (player.leftRect(this))  dX += 1; 
+        if (player.rightRect(this)) dX -= 1;
+
+        while( stagePosX > 0 && stagePosY > 0 && stagePosX <= gStage.width && stagePosY < gStage.height){
+            if (!gGameState.mLevel.mStage[stagePosX + stagePosY * gStage.width].isSolid && !gGameState.mLevel.mStage[stagePosX + (stagePosY + 1) * gStage.width].isSolid) {
+                player.setPos(stagePosX * gTileWidth, stagePosY * gTileWidth);
+                break;
+            }
+            stagePosX += dX;
+            stagePosY += dY;
+        };
 }
 
 
