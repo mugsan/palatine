@@ -61,7 +61,7 @@ var gColorErotic = {
     trap                        : "#663366",
     wall                        : "#994499",
     goal                        : "#FFCCFF",
-    dead                        : "#332233",
+    dead                        : "#CC00CC",
     tele                        : "#DDAADD",
 
     glue                        : "#111177",
@@ -88,41 +88,33 @@ var gColorHell = {
     anti                        : "#999911"
 };
 
-
+var gColorArray = [gColorNormal, gColorErotic, gColorHell];
 
 var gLEVELS = [
     {
-        path                    : "./stage/testing.bmp",
-        colorscheme             : gColorNormal 
+        path                    : "./stage/testing.bmp"
     },
     {
-        path                    : "./stage/stage1.bmp",
-        colorscheme             : gColorHell
+        path                    : "./stage/stage1.bmp"
     },
     {
-        path                    : "./stage/stage2.bmp",
-        colorscheme             : gColorNormal
+        path                    : "./stage/stage2.bmp"
     },
     {
         path                    : "./stage/stage3.bmp",
-        colorscheme             : gColorNormal,
         noJump                  : true
     },
     {
-        path                    : "./stage/stage4.bmp",
-        colorscheme             : gColorNormal
+        path                    : "./stage/stage4.bmp"
     },
     {
-        path                    : "./stage/stage5.bmp",
-        colorscheme             : gColorNormal
+        path                    : "./stage/stage5.bmp"
     },
     {
-        path                    : "./stage/stage6.bmp",
-        colorscheme             : gColorNormal
+        path                    : "./stage/stage6.bmp"
     },
     {
         path                    : "./stage/stage99.bmp",
-        colorscheme             : gColorNormal,
         noJump                  : true
     }
 ];

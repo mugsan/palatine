@@ -21,7 +21,7 @@
 function Level(arg_levelData){
     
  
-    gColor                      = arg_levelData.colorscheme;
+    gColor                      = gColorArray[Math.floor(Math.random()*3)];
 
     this.mStage                 = 0;        
     this.noJump                 = arg_levelData.noJump;
