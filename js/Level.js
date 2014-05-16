@@ -139,7 +139,7 @@ Level.prototype.readBMP             = function(arg_path) {
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         
-                    case 82:       var r = new DeathTile(col * gTileWidth, row * gTileWidth, gColor.dead);
+                    case 82:        var r = new DeathTile(col * gTileWidth, row * gTileWidth, gColor.dead);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     //Traptile     
@@ -156,7 +156,7 @@ Level.prototype.readBMP             = function(arg_path) {
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                     //TeleTile
-                    case 174:       var r = new TeleTile(col * gTileWidth, row * gTileWidth, gColor.glue);
+                    case 174:       var r = new TeleTile(col * gTileWidth, row * gTileWidth, gColor.tele);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
       

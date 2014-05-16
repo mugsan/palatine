@@ -37,61 +37,63 @@ var gStage = {
 var gColorNormal = {
 
     background                  : "#555555",
-    conveyerLeft                : "#424242",
-    conveyerRight               : "#424242",
-    bridge                      : "#89F354",
-    wall                        : "#442222",
+    conveyerLeft                : "#444444",
+    conveyerRight               : "#444444",
+    bridge                      : "#333333",
+    trap                        : "#333333",
+    wall                        : "#222222",
     goal                        : "#FFFFFF",
-    jump                        : "#FF8000",
-    helm                        : "#339955",
-    anti                        : "#FFFFFF",
-    dead                        : "#FF0000",
-    glue                        : "#1188AA",
-    trap                        : "#CCCCCC"
+    dead                        : "#000000",
+    tele                        : "#CCCCCC",
+
+    glue                        : "#111177",
+    jump                        : "#771111",
+    helm                        : "#117711",
+    anti                        : "#999911"
 };
 
 var gColorErotic = {
 
-    background                  : "#AD3D95",
-    conveyerLeft                : "#6B2E5D",
-    conveyerRight               : "#6B2E5D",
-    bridge                      : "#EB1EBB",
-    wall                        : "#D49BC7",
-    goal                        : "#F2D3EB",
-    jump                        : "#D585F2",
-    helm                        : "#711094",
-    anti                        : "#FFADFA",
-    dead                        : "#6A4E87",
-    glue                        : "#D660CE",
-    trap                        : "#CCCCCC"
+    background                  : "#441144",
+    conveyerLeft                : "#664466",
+    conveyerRight               : "#664466",
+    bridge                      : "#663366",
+    trap                        : "#663366",
+    wall                        : "#994499",
+    goal                        : "#FFCCFF",
+    dead                        : "#332233",
+    tele                        : "#DDAADD",
+
+    glue                        : "#111177",
+    jump                        : "#771111",
+    helm                        : "#117711",
+    anti                        : "#999911"
 };
 
 var gColorHell = {
 
-    background                  : "#7A3131",
-    conveyerLeft                : "#8C7474",
-    conveyerRight               : "#8C7474",
-    bridge                      : "#89F354",
-    wall                        : "#6E2121",
-    goal                        : "#FF9E9E",
-    jump                        : "#9E5252",
-    helm                        : "#613636",
-    anti                        : "#787878",
-    dead                        : "#FF0000",
-    glue                        : "#80824F",
-    trap                        : "#CCCCCC"
+    background                  : "#441111",
+    conveyerLeft                : "#664444",
+    conveyerRight               : "#664444",
+    bridge                      : "#663333",
+    trap                        : "#663333",
+    wall                        : "#994444",
+    goal                        : "#FFCCCC",
+    dead                        : "#CC0000",
+    tele                        : "#996666",
+
+    glue                        : "#111177",
+    jump                        : "#771111",
+    helm                        : "#117711",
+    anti                        : "#999911"
 };
 
 
 
 var gLEVELS = [
-    //{
-        //path                    : "./stage/testing.bmp",
-        //colorscheme             : gColorErotic
-    //},
     {
         path                    : "./stage/stage0.bmp",
-        colorscheme             : gColorErotic
+        colorscheme             : gColorNormal 
     },
     {
         path                    : "./stage/stage1.bmp",
