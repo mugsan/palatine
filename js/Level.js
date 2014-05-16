@@ -7,14 +7,14 @@
  *  179             : 192           : Player
  *  40              : 25            : Goal
  *  100             : 121           : Bridge
- *  221             : 230           : Antigravity
+ *  221             : 230           : Antigravity (activate)
  *  156             : 174           : TeleTile
  *  64              : 82            : Death by chocolate
  *  209             : 218           : HammerTile
- *  173             : 187
+ *  173             : 187           : Antigravity (deactivate)
  *  88              : 107           : TrapTile
  *  174             : 189           : RedTile
- *  206             : 218          
+ *  206             : 218           : 
  *  176             : 190           : GlueTile
  *  173             : 189          
  */
@@ -135,7 +135,12 @@ Level.prototype.readBMP             = function(arg_path) {
                                     break;
                         
                     //Antigravity
-                    case 230:       var r = new AntiGravityTile(col * gTileWidth, row * gTileWidth, gColor.anti);
+                    case 230:       var r = new AntiGravityTile(col * gTileWidth, row * gTileWidth, gColor.anti, -1);
+                                    tPixel[col + row * tCanvas.width] = r;
+                                    break;
+                        
+                    //Antigravity (deactivate)    
+                    case 187:       var r = new AntiGravityTile(col * gTileWidth, row * gTileWidth, gColor.anti, 1);
                                     tPixel[col + row * tCanvas.width] = r;
                                     break;
                         

@@ -92,7 +92,19 @@ var gColorArray = [gColorNormal, gColorErotic, gColorHell];
 
 var gLEVELS = [
     {
-        path                    : "./stage/stage0.bmp"
+        path                    : "./stage/intro0.bmp"
+    },
+    {
+        path                    : "./stage/intro1.bmp"
+    },
+    {
+        path                    : "./stage/intro2.bmp"
+    },
+    {
+        path                    : "./stage/intro3.bmp"
+    },
+    {
+        path                    : "./stage/intro4.bmp"
     },
     {
         path                    : "./stage/stage1.bmp"
@@ -114,12 +126,20 @@ var gLEVELS = [
         path                    : "./stage/stage6.bmp"
     },
     {
-        path                    : "./stage/stage7.bmp"
+        path                    : "./stage/stage7.bmp",
+        noJump                  : true
+    },
+    {
+        path                    : "./stage/stage11.bmp"
+    },
+    {
+        path                    : "./stage/stage12.bmp"
     },
     {
         path                    : "./stage/stage99.bmp",
         noJump                  : true
     }
+    
 ];
 
 
